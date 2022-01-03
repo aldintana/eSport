@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eSport", "eSport\eSport.csproj", "{1ED8AF92-CC0A-42EB-9FA0-B97061AA321A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eSport.Model", "eSport.Model\eSport.Model.csproj", "{6F10790A-9E91-4D5F-B7ED-CA18E0077A48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eSport.Model", "eSport.Model\eSport.Model.csproj", "{6F10790A-9E91-4D5F-B7ED-CA18E0077A48}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{8E44C155-5B39-4092-9F80-5F536FD00331}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eSport.WinUI", "eSport.WinUI\eSport.WinUI.csproj", "{1055BA5F-D1E6-4120-841B-F4DEC8380F37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +25,16 @@ Global
 		{6F10790A-9E91-4D5F-B7ED-CA18E0077A48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F10790A-9E91-4D5F-B7ED-CA18E0077A48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F10790A-9E91-4D5F-B7ED-CA18E0077A48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1055BA5F-D1E6-4120-841B-F4DEC8380F37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1055BA5F-D1E6-4120-841B-F4DEC8380F37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1055BA5F-D1E6-4120-841B-F4DEC8380F37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1055BA5F-D1E6-4120-841B-F4DEC8380F37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1055BA5F-D1E6-4120-841B-F4DEC8380F37} = {8E44C155-5B39-4092-9F80-5F536FD00331}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {43D3904F-8FA3-4531-9268-19D29E1BC66B}

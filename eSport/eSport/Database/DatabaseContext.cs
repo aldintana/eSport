@@ -14,5 +14,6 @@ namespace eSport.Database
         }
 
         public virtual DbSet<Sport> Sports { get; set; }
+        public virtual DbSet<Teren> Terens { get; set; }
     }
 }

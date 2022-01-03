@@ -14,6 +14,10 @@ namespace eSport.Mapping
             CreateMap<Database.Sport, Model.Sport>();
             CreateMap<SportInsertRequest, Database.Sport>();
             CreateMap<Model.Sport, SportInsertRequest>();
+            CreateMap<Database.Teren, Model.Teren>();
+            CreateMap<TerenInsertRequest, Database.Teren>();
+            CreateMap<Model.Teren, TerenInsertRequest>();
+
         }
     }
 }
