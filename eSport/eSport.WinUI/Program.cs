@@ -16,7 +16,7 @@ namespace eSport.WinUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmTereni());
+            Application.Run(new frmPocetna());
         }
     }
 }

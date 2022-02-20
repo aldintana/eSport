@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eSport.Controllers
 {
-    public class TerenController : BaseCRUDController<Model.Teren, object, TerenInsertRequest, TerenInsertRequest>
+    public class TerenController : BaseCRUDController<Model.Teren, TerenSearchRequest, TerenInsertRequest, TerenInsertRequest>
     {
         public TerenController(ITerenService terenService) : base(terenService)
         {

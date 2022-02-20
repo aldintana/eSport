@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace eSport.Services
 {
-    public interface ITerenService : ICRUDService<Model.Teren, object, TerenInsertRequest, TerenInsertRequest>
+    public interface ITerenService : ICRUDService<Model.Teren, TerenSearchRequest, TerenInsertRequest, TerenInsertRequest>
     {
     }
 }
