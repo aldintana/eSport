@@ -31,20 +31,31 @@
             this.dgvTereni = new System.Windows.Forms.DataGridView();
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.txtPretraga = new System.Windows.Forms.TextBox();
+            this.btnDodajTeren = new System.Windows.Forms.Button();
+            this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SportNaziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTereni)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvTereni
             // 
+            this.dgvTereni.AllowUserToAddRows = false;
+            this.dgvTereni.AllowUserToDeleteRows = false;
             this.dgvTereni.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTereni.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Naziv,
+            this.SportNaziv});
             this.dgvTereni.Location = new System.Drawing.Point(12, 80);
             this.dgvTereni.Name = "dgvTereni";
+            this.dgvTereni.ReadOnly = true;
+            this.dgvTereni.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTereni.Size = new System.Drawing.Size(776, 358);
             this.dgvTereni.TabIndex = 0;
+            this.dgvTereni.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTereni_CellContentClick);
             // 
             // btnPrikazi
             // 
-            this.btnPrikazi.Location = new System.Drawing.Point(669, 35);
+            this.btnPrikazi.Location = new System.Drawing.Point(544, 35);
             this.btnPrikazi.Name = "btnPrikazi";
             this.btnPrikazi.Size = new System.Drawing.Size(119, 23);
             this.btnPrikazi.TabIndex = 1;
@@ -54,16 +65,41 @@
             // 
             // txtPretraga
             // 
-            this.txtPretraga.Location = new System.Drawing.Point(12, 35);
+            this.txtPretraga.Location = new System.Drawing.Point(12, 37);
             this.txtPretraga.Name = "txtPretraga";
-            this.txtPretraga.Size = new System.Drawing.Size(625, 20);
+            this.txtPretraga.Size = new System.Drawing.Size(513, 20);
             this.txtPretraga.TabIndex = 2;
+            // 
+            // btnDodajTeren
+            // 
+            this.btnDodajTeren.Location = new System.Drawing.Point(669, 35);
+            this.btnDodajTeren.Name = "btnDodajTeren";
+            this.btnDodajTeren.Size = new System.Drawing.Size(119, 23);
+            this.btnDodajTeren.TabIndex = 3;
+            this.btnDodajTeren.Text = "Novi teren";
+            this.btnDodajTeren.UseVisualStyleBackColor = true;
+            this.btnDodajTeren.Click += new System.EventHandler(this.btnDodajTeren_Click);
+            // 
+            // Naziv
+            // 
+            this.Naziv.DataPropertyName = "Naziv";
+            this.Naziv.HeaderText = "Naziv";
+            this.Naziv.Name = "Naziv";
+            this.Naziv.ReadOnly = true;
+            // 
+            // SportNaziv
+            // 
+            this.SportNaziv.DataPropertyName = "SportNaziv";
+            this.SportNaziv.HeaderText = "Sport";
+            this.SportNaziv.Name = "SportNaziv";
+            this.SportNaziv.ReadOnly = true;
             // 
             // frmPrikazTerena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnDodajTeren);
             this.Controls.Add(this.txtPretraga);
             this.Controls.Add(this.btnPrikazi);
             this.Controls.Add(this.dgvTereni);
@@ -81,5 +117,8 @@
         private System.Windows.Forms.DataGridView dgvTereni;
         private System.Windows.Forms.Button btnPrikazi;
         private System.Windows.Forms.TextBox txtPretraga;
+        private System.Windows.Forms.Button btnDodajTeren;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SportNaziv;
     }
 }

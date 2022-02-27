@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace eSport.Model.Requests
+namespace eSport.Model
 {
     public class SportInsertRequest
     {

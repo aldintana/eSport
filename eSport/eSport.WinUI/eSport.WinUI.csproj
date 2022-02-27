@@ -43,6 +43,10 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.1.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
@@ -65,10 +69,16 @@
     <Compile Include="frmPocetna.Designer.cs">
       <DependentUpon>frmPocetna.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPrikazTerena.cs">
+    <Compile Include="Teren\frmDetaljiTerena.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPrikazTerena.Designer.cs">
+    <Compile Include="Teren\frmDetaljiTerena.Designer.cs">
+      <DependentUpon>frmDetaljiTerena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teren\frmPrikazTerena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teren\frmPrikazTerena.Designer.cs">
       <DependentUpon>frmPrikazTerena.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -76,7 +86,10 @@
     <EmbeddedResource Include="frmPocetna.resx">
       <DependentUpon>frmPocetna.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPrikazTerena.resx">
+    <EmbeddedResource Include="Teren\frmDetaljiTerena.resx">
+      <DependentUpon>frmDetaljiTerena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teren\frmPrikazTerena.resx">
       <DependentUpon>frmPrikazTerena.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -87,6 +100,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -10,5 +10,7 @@ namespace eSport.Model
         public string Naziv { get; set; }
         public int SportId { get; set; }
         public virtual Sport Sport { get; set; }
+
+        public string SportNaziv => Sport?.Naziv;
     }
 }

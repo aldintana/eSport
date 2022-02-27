@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using eSport.Model.Requests;
+using eSport.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
