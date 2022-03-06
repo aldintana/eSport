@@ -69,6 +69,8 @@
     <Compile Include="frmPocetna.Designer.cs">
       <DependentUpon>frmPocetna.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper\NazivServisa.cs" />
+    <Compile Include="Helper\Validator.cs" />
     <Compile Include="Teren\frmDetaljiTerena.cs">
       <SubType>Form</SubType>
     </Compile>

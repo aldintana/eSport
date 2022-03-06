@@ -1,11 +1,8 @@
-﻿ using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using eSport.Model;
 using Flurl.Http;
-using Flurl;
 using System.Windows.Forms;
 
 namespace eSport.WinUI

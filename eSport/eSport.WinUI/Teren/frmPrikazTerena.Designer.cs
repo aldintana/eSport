@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.dgvTereni = new System.Windows.Forms.DataGridView();
+            this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SportNaziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.txtPretraga = new System.Windows.Forms.TextBox();
             this.btnDodajTeren = new System.Windows.Forms.Button();
-            this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SportNaziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTereni)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,6 +52,20 @@
             this.dgvTereni.Size = new System.Drawing.Size(776, 358);
             this.dgvTereni.TabIndex = 0;
             this.dgvTereni.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTereni_CellContentClick);
+            // 
+            // Naziv
+            // 
+            this.Naziv.DataPropertyName = "Naziv";
+            this.Naziv.HeaderText = "Naziv";
+            this.Naziv.Name = "Naziv";
+            this.Naziv.ReadOnly = true;
+            // 
+            // SportNaziv
+            // 
+            this.SportNaziv.DataPropertyName = "SportNaziv";
+            this.SportNaziv.HeaderText = "Sport";
+            this.SportNaziv.Name = "SportNaziv";
+            this.SportNaziv.ReadOnly = true;
             // 
             // btnPrikazi
             // 
@@ -80,20 +94,6 @@
             this.btnDodajTeren.UseVisualStyleBackColor = true;
             this.btnDodajTeren.Click += new System.EventHandler(this.btnDodajTeren_Click);
             // 
-            // Naziv
-            // 
-            this.Naziv.DataPropertyName = "Naziv";
-            this.Naziv.HeaderText = "Naziv";
-            this.Naziv.Name = "Naziv";
-            this.Naziv.ReadOnly = true;
-            // 
-            // SportNaziv
-            // 
-            this.SportNaziv.DataPropertyName = "SportNaziv";
-            this.SportNaziv.HeaderText = "Sport";
-            this.SportNaziv.Name = "SportNaziv";
-            this.SportNaziv.ReadOnly = true;
-            // 
             // frmPrikazTerena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,7 +104,8 @@
             this.Controls.Add(this.btnPrikazi);
             this.Controls.Add(this.dgvTereni);
             this.Name = "frmPrikazTerena";
-            this.Text = "frmPrikazTerena";
+            this.Text = "Prikaz terena";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPrikazTerena_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTereni)).EndInit();
             this.ResumeLayout(false);

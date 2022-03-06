@@ -44,6 +44,7 @@
             this.txtNaziv.Name = "txtNaziv";
             this.txtNaziv.Size = new System.Drawing.Size(322, 20);
             this.txtNaziv.TabIndex = 0;
+            this.txtNaziv.Validating += new System.ComponentModel.CancelEventHandler(this.txtNaziv_Validating);
             // 
             // label1
             // 
@@ -61,6 +62,7 @@
             this.cmbSport.Name = "cmbSport";
             this.cmbSport.Size = new System.Drawing.Size(323, 21);
             this.cmbSport.TabIndex = 2;
+            this.cmbSport.Validating += new System.ComponentModel.CancelEventHandler(this.cmbSport_Validating);
             // 
             // label2
             // 
@@ -96,7 +98,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNaziv);
             this.Name = "frmDetaljiTerena";
-            this.Text = "frmDetaljiTerena";
+            this.Text = "Teren";
             this.Load += new System.EventHandler(this.frmDetaljiTerena_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);

@@ -61,11 +61,29 @@ namespace eSport.WinUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Došlo je do greške..
+        /// </summary>
+        internal static string Greška {
+            get {
+                return ResourceManager.GetString("Greška", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Obavezno polje..
         /// </summary>
-        internal static string UbavezanUnosPolja {
+        internal static string ObavezanUnosPolja {
             get {
-                return ResourceManager.GetString("UbavezanUnosPolja", resourceCulture);
+                return ResourceManager.GetString("ObavezanUnosPolja", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uspješno..
+        /// </summary>
+        internal static string UspješnaOperacija {
+            get {
+                return ResourceManager.GetString("UspješnaOperacija", resourceCulture);
             }
         }
     }

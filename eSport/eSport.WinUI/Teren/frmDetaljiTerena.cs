@@ -13,8 +13,8 @@ namespace eSport.WinUI
 {
     public partial class frmDetaljiTerena : Form
     {
-        APIService terenService = new APIService("Teren");
-        APIService sportService = new APIService("Sport");
+        APIService terenService = new APIService(NazivServisa.Teren);
+        APIService sportService = new APIService(NazivServisa.Sport);
 
         private Teren _teren;
         public frmDetaljiTerena(Teren teren = null)
@@ -36,7 +36,6 @@ namespace eSport.WinUI
         private async Task LoadSportove()
         {
             var sportovi = await sportService.Get<List<Sport>>();
-
             sportovi.Insert(0, new Sport());
             cmbSport.DataSource = sportovi;
             cmbSport.DisplayMember = "Naziv";
@@ -45,24 +44,47 @@ namespace eSport.WinUI
 
         private async void btnSpremi_Click(object sender, EventArgs e)
         {
-            if(_teren==null)
+            if(this.ValidateChildren())
             {
-                TerenInsertRequest request = new TerenInsertRequest
+                try
                 {
-                    Naziv = txtNaziv.Text,
-                    SportId = cmbSport.SelectedIndex
-                };
-                var teren = await terenService.Insert<Teren>(request);
-            }
-            else
-            {
-                TerenInsertRequest request = new TerenInsertRequest
+                    if (_teren == null)
+                    {
+                        TerenInsertRequest request = new TerenInsertRequest
+                        {
+                            Naziv = txtNaziv.Text,
+                            SportId = cmbSport.SelectedIndex
+                        };
+                        var teren = await terenService.Insert<Teren>(request);
+                    }
+                    else
+                    {
+                        TerenInsertRequest request = new TerenInsertRequest
+                        {
+                            Naziv = txtNaziv.Text,
+                            SportId = cmbSport.SelectedIndex
+                        };
+                        var teren = await terenService.Update<Teren>(_teren.Id, request);
+                    }
+                    MessageBox.Show(Properties.Resources.UspješnaOperacija);
+                    DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                catch (Exception)
                 {
-                    Naziv = txtNaziv.Text,
-                    SportId = cmbSport.SelectedIndex
-                };
-                var teren = await terenService.Update<Teren>(_teren.Id, request);
+                    MessageBox.Show(Properties.Resources.Greška);
+                }
             }
+        }
+
+        private void txtNaziv_Validating(object sender, CancelEventArgs e)
+        {
+            Validator.ValidacijaObaveznoPolje(errorProvider, txtNaziv, e);
+        }
+
+        private void cmbSport_Validating(object sender, CancelEventArgs e)
+        {
+            Validator.ValidacijaComboBox(errorProvider, cmbSport, e);
         }
     }
 }

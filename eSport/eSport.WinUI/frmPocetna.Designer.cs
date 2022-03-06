@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.tereniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.tereniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -47,6 +47,14 @@
             this.menuStrip.Size = new System.Drawing.Size(632, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
+            // 
+            // tereniToolStripMenuItem
+            // 
+            this.tereniToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
+            this.tereniToolStripMenuItem.Name = "tereniToolStripMenuItem";
+            this.tereniToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.tereniToolStripMenuItem.Text = "Tereni";
+            this.tereniToolStripMenuItem.Click += new System.EventHandler(this.tereniToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -64,14 +72,6 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // tereniToolStripMenuItem
-            // 
-            this.tereniToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
-            this.tereniToolStripMenuItem.Name = "tereniToolStripMenuItem";
-            this.tereniToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.tereniToolStripMenuItem.Text = "Tereni";
-            this.tereniToolStripMenuItem.Click += new System.EventHandler(this.tereniToolStripMenuItem_Click);
-            // 
             // frmPocetna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -82,7 +82,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "frmPocetna";
-            this.Text = "frmPocetna";
+            this.Text = "Početna";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
