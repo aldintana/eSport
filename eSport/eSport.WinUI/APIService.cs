@@ -11,8 +11,10 @@ namespace eSport.WinUI
     {
         private string _route = null;
 
-        public static string Username { get; set; }
-        public static string Password { get; set; }
+        public static string KorisnickoIme { get; set; }
+        public static string Lozinka { get; set; }
+        public static int LogiraniKorisnikId { get; set; }
+        public static bool Admin { get; set; }
 
         public APIService(string route)
         {
@@ -26,13 +28,13 @@ namespace eSport.WinUI
                 url += "?";
                 url += await request.ToQueryString();
             }
-            var result = await url.WithBasicAuth(Username,Password).GetJsonAsync<T>();
+            var result = await url.WithBasicAuth(KorisnickoIme,Lozinka).GetJsonAsync<T>();
             return result;
         }
         public async Task<T> GetById<T>(object id)
         {
             var url = $"{Properties.Settings.Default.ApiURL}/{_route}/{id}";            
-            var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+            var result = await url.WithBasicAuth(KorisnickoIme, Lozinka).GetJsonAsync<T>();
             return result;
         }
 
@@ -41,7 +43,7 @@ namespace eSport.WinUI
             var url = $"{Properties.Settings.Default.ApiURL}/{_route}";
             try
             {
-                return await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
+                return await url.WithBasicAuth(KorisnickoIme, Lozinka).PostJsonAsync(request).ReceiveJson<T>();
             }
             catch (FlurlHttpException ex)
             {
@@ -55,7 +57,7 @@ namespace eSport.WinUI
             var url = $"{Properties.Settings.Default.ApiURL}/{_route}/{id}";
             try
             {
-                return await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
+                return await url.WithBasicAuth(KorisnickoIme, Lozinka).PutJsonAsync(request).ReceiveJson<T>();
 
             }
             catch (FlurlHttpException ex)

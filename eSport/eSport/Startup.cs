@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using eSport.Database;
 using eSport.Filters;
+using eSport.Security;
 using eSport.Services;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -44,6 +46,12 @@ namespace eSport
 
             services.AddScoped<ISportService, SportService>();
             services.AddScoped<ITerenService, TerenService>();
+            services.AddScoped<IKorisnikService, KorisnikService>();
+
+
+            services.AddAuthentication("BasicAuthentication")
+                    .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

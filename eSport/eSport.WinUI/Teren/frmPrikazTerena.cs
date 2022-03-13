@@ -24,7 +24,7 @@ namespace eSport.WinUI
         {
             TerenSearchRequest searchRequest = new TerenSearchRequest
             {
-                Naziv = txtPretraga.Text,
+                TekstPretraga = txtPretraga.Text,
                 IncludeList = new string[]
                 {
                     "Sport"

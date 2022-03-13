@@ -19,9 +19,9 @@ namespace eSport.Services
         {
             var entity = _context.Set<Database.Teren>().AsQueryable();
 
-            if(!string.IsNullOrWhiteSpace(search.Naziv))
+            if(!string.IsNullOrWhiteSpace(search.TekstPretraga))
             {
-                entity = entity.Where(x => x.Naziv.Contains(search.Naziv));
+                entity = entity.Where(x => x.Naziv.Contains(search.TekstPretraga));
             }
 
             if (search.SportId.HasValue)

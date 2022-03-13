@@ -4,8 +4,9 @@ using System.Text;
 
 namespace eSport.Model
 {
-    public class TerenSearchRequest : BaseSearchRequest
+    public class Uloga
     {
-        public int? SportId { get; set; }
+        public int Id { get; set; }
+        public string Naziv { get; set; }
     }
 }

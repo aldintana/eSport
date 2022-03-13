@@ -70,6 +70,15 @@ namespace eSport.WinUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pogrešni kredencijali..
+        /// </summary>
+        internal static string GreškaUPrijavi {
+            get {
+                return ResourceManager.GetString("GreškaUPrijavi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Obavezno polje..
         /// </summary>
         internal static string ObavezanUnosPolja {
