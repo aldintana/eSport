@@ -13,7 +13,7 @@ namespace eSport.WinUI
 {
     public partial class frmLogin : Form
     {
-        private readonly APIService _korisnikService = new APIService(NazivServisa.Korisnik);
+        private readonly APIService _korisnikService = new APIService(NazivEntiteta.Korisnik);
         public frmLogin()
         {
             InitializeComponent();

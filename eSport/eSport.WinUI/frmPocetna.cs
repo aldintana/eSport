@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eSport.WinUI.Korisnik;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -100,7 +101,16 @@ namespace eSport.WinUI
         {
             frmPrikazTerena frmPrikazTerena = new frmPrikazTerena();
             frmPrikazTerena.MdiParent = this;
+            frmPrikazTerena.WindowState = FormWindowState.Maximized;
             frmPrikazTerena.Show();
+        }
+
+        private void korisniciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPrikazKorisnika frmPrikazKorisnika = new frmPrikazKorisnika();
+            frmPrikazKorisnika.MdiParent = this;
+            frmPrikazKorisnika.WindowState = FormWindowState.Maximized;
+            frmPrikazKorisnika.Show();
         }
     }
 }

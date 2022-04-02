@@ -47,6 +47,7 @@ namespace eSport
             services.AddScoped<ISportService, SportService>();
             services.AddScoped<ITerenService, TerenService>();
             services.AddScoped<IKorisnikService, KorisnikService>();
+            services.AddScoped<IUlogaService, UlogaService>();
 
 
             services.AddAuthentication("BasicAuthentication")

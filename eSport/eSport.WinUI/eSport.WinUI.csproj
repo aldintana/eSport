@@ -75,8 +75,20 @@
     <Compile Include="frmPocetna.Designer.cs">
       <DependentUpon>frmPocetna.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helper\NazivServisa.cs" />
+    <Compile Include="Helper\NazivEntiteta.cs" />
     <Compile Include="Helper\Validator.cs" />
+    <Compile Include="Korisnik\frmDetaljiKorisnika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frmDetaljiKorisnika.Designer.cs">
+      <DependentUpon>frmDetaljiKorisnika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\frmPrikazKorisnika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnik\frmPrikazKorisnika.Designer.cs">
+      <DependentUpon>frmPrikazKorisnika.cs</DependentUpon>
+    </Compile>
     <Compile Include="Teren\frmDetaljiTerena.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +108,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPocetna.resx">
       <DependentUpon>frmPocetna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frmDetaljiKorisnika.resx">
+      <DependentUpon>frmDetaljiKorisnika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnik\frmPrikazKorisnika.resx">
+      <DependentUpon>frmPrikazKorisnika.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Teren\frmDetaljiTerena.resx">
       <DependentUpon>frmDetaljiTerena.cs</DependentUpon>

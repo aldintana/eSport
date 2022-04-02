@@ -13,7 +13,7 @@ namespace eSport.WinUI
 {
     public partial class frmPrikazTerena : Form
     {
-        APIService _serviceTereni = new APIService("Teren");
+        APIService _serviceTereni = new APIService(NazivEntiteta.Teren);
         public frmPrikazTerena()
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace eSport.WinUI
                 TekstPretraga = txtPretraga.Text,
                 IncludeList = new string[]
                 {
-                    "Sport"
+                    NazivEntiteta.Sport
                 }
             };
 
@@ -36,15 +36,23 @@ namespace eSport.WinUI
 
         private async void frmPrikazTerena_Load(object sender, EventArgs e)
         {
-            var searchRequest = new TerenSearchRequest
+            try
             {
-                IncludeList = new string[]
+                var searchRequest = new TerenSearchRequest
                 {
-                    "Sport"
-                }
-            };
+                    IncludeList = new string[]
+                    {
+                        NazivEntiteta.Sport
+                    }
+                };
 
-            dgvTereni.DataSource = await _serviceTereni.Get<List<Model.Teren>>(searchRequest);
+                dgvTereni.DataSource = await _serviceTereni.Get<List<Model.Teren>>(searchRequest);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(Properties.Resources.Greška);
+            }
+            
         }
 
         private void dgvTereni_CellContentClick(object sender, DataGridViewCellEventArgs e)

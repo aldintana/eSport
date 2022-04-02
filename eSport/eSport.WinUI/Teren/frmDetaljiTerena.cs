@@ -13,8 +13,8 @@ namespace eSport.WinUI
 {
     public partial class frmDetaljiTerena : Form
     {
-        APIService terenService = new APIService(NazivServisa.Teren);
-        APIService sportService = new APIService(NazivServisa.Sport);
+        APIService terenService = new APIService(NazivEntiteta.Teren);
+        APIService sportService = new APIService(NazivEntiteta.Sport);
 
         private Teren _teren;
         public frmDetaljiTerena(Teren teren = null)
@@ -48,22 +48,17 @@ namespace eSport.WinUI
             {
                 try
                 {
+                    TerenInsertRequest request = new TerenInsertRequest
+                    {
+                        Naziv = txtNaziv.Text,
+                        SportId = cmbSport.SelectedIndex
+                    };
                     if (_teren == null)
                     {
-                        TerenInsertRequest request = new TerenInsertRequest
-                        {
-                            Naziv = txtNaziv.Text,
-                            SportId = cmbSport.SelectedIndex
-                        };
                         var teren = await terenService.Insert<Teren>(request);
                     }
                     else
                     {
-                        TerenInsertRequest request = new TerenInsertRequest
-                        {
-                            Naziv = txtNaziv.Text,
-                            SportId = cmbSport.SelectedIndex
-                        };
                         var teren = await terenService.Update<Teren>(_teren.Id, request);
                     }
                     MessageBox.Show(Properties.Resources.UspješnaOperacija);
