@@ -44,9 +44,6 @@ namespace eSport.Migrations
                     b.Property<string>("KorisnickoIme")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Lozinka")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("LozinkaHash")
                         .HasColumnType("nvarchar(max)");
 

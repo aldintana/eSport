@@ -27,7 +27,7 @@ namespace eSport.Services
             return _mapper.Map<T>(entity);
         }
 
-        public T Update(int id, TUpdate request)
+        public virtual T Update(int id, TUpdate request)
         {
             var set = _context.Set<TDb>();
             var entity = set.Find(id);
@@ -35,6 +35,26 @@ namespace eSport.Services
             _mapper.Map(request, entity);
 
             _context.SaveChanges();
+            return _mapper.Map<T>(entity);
+        }
+
+        public virtual T Delete(int id, bool soft = true)
+        {
+            var set = _context.Set<TDb>();
+
+            var entity = set.Find(id);
+
+            if(soft)
+            {
+                entity.IsDeleted = true;
+            }
+            else
+            {
+                set.Remove(entity);
+            }
+
+            _context.SaveChanges();
+
             return _mapper.Map<T>(entity);
         }
     }

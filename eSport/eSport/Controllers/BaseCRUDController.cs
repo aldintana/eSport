@@ -28,5 +28,11 @@ namespace eSport.Controllers
         {
             return _crudService.Update(id, request);
         }
+
+        [HttpDelete("{id}")]
+        public virtual T Delete(int id)
+        {
+            return _crudService.Delete(id);
+        }
     }
 }

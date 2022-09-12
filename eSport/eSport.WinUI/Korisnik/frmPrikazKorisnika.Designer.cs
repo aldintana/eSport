@@ -95,6 +95,7 @@
             this.dgvKorisnici.Location = new System.Drawing.Point(6, 29);
             this.dgvKorisnici.Name = "dgvKorisnici";
             this.dgvKorisnici.ReadOnly = true;
+            this.dgvKorisnici.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKorisnici.Size = new System.Drawing.Size(764, 312);
             this.dgvKorisnici.TabIndex = 0;
             this.dgvKorisnici.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKorisnici_CellContentClick);

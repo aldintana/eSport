@@ -39,11 +39,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtBrojTelefona = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtLozinkaProvjera = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtLozinka = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSacuvaj = new System.Windows.Forms.Button();
+            this.clbUloge = new System.Windows.Forms.CheckedListBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtIme
@@ -135,12 +137,12 @@
             this.label7.TabIndex = 15;
             this.label7.Text = "Potvrda lozinka:";
             // 
-            // textBox6
+            // txtLozinkaProvjera
             // 
-            this.textBox6.Location = new System.Drawing.Point(224, 178);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(194, 20);
-            this.textBox6.TabIndex = 14;
+            this.txtLozinkaProvjera.Location = new System.Drawing.Point(224, 178);
+            this.txtLozinkaProvjera.Name = "txtLozinkaProvjera";
+            this.txtLozinkaProvjera.Size = new System.Drawing.Size(194, 20);
+            this.txtLozinkaProvjera.TabIndex = 14;
             // 
             // label8
             // 
@@ -151,12 +153,12 @@
             this.label8.TabIndex = 13;
             this.label8.Text = "Lozinka:";
             // 
-            // textBox7
+            // txtLozinka
             // 
-            this.textBox7.Location = new System.Drawing.Point(12, 178);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(194, 20);
-            this.textBox7.TabIndex = 12;
+            this.txtLozinka.Location = new System.Drawing.Point(12, 178);
+            this.txtLozinka.Name = "txtLozinka";
+            this.txtLozinka.Size = new System.Drawing.Size(194, 20);
+            this.txtLozinka.TabIndex = 12;
             // 
             // label5
             // 
@@ -171,24 +173,44 @@
             // 
             // btnSacuvaj
             // 
-            this.btnSacuvaj.Location = new System.Drawing.Point(302, 278);
+            this.btnSacuvaj.Location = new System.Drawing.Point(302, 371);
             this.btnSacuvaj.Name = "btnSacuvaj";
             this.btnSacuvaj.Size = new System.Drawing.Size(116, 23);
             this.btnSacuvaj.TabIndex = 17;
             this.btnSacuvaj.Text = "Sačuvaj";
             this.btnSacuvaj.UseVisualStyleBackColor = true;
+            this.btnSacuvaj.Click += new System.EventHandler(this.btnSacuvaj_Click);
+            // 
+            // clbUloge
+            // 
+            this.clbUloge.FormattingEnabled = true;
+            this.clbUloge.Location = new System.Drawing.Point(12, 257);
+            this.clbUloge.Name = "clbUloge";
+            this.clbUloge.Size = new System.Drawing.Size(406, 94);
+            this.clbUloge.TabIndex = 18;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 241);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 13);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Uloga:";
             // 
             // frmDetaljiKorisnika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(432, 336);
+            this.ClientSize = new System.Drawing.Size(432, 406);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.clbUloge);
             this.Controls.Add(this.btnSacuvaj);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtLozinkaProvjera);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.txtLozinka);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtBrojTelefona);
             this.Controls.Add(this.label3);
@@ -201,6 +223,7 @@
             this.Controls.Add(this.txtIme);
             this.Name = "frmDetaljiKorisnika";
             this.Text = "Korisnik";
+            this.Load += new System.EventHandler(this.frmDetaljiKorisnika_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,10 +242,12 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtBrojTelefona;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtLozinkaProvjera;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtLozinka;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnSacuvaj;
+        private System.Windows.Forms.CheckedListBox clbUloge;
+        private System.Windows.Forms.Label label9;
     }
 }

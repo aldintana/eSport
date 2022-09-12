@@ -41,6 +41,77 @@ namespace eSport.Services
             return _mapper.Map<List<Model.Korisnik>>(list);
         }
 
+        public override Model.Korisnik Insert(KorisnikInsertRequest request)
+        {
+            var users = _context.Set<Database.Korisnik>().AsQueryable();
+            if (users.Any(x => x.KorisnickoIme == request.KorisnickoIme))
+            {
+                return null;
+            }
+            var entity = _mapper.Map<Database.Korisnik>(request);
+            _context.Add(entity);
+            if (request.Lozinka != request.LozinkaProvjera)
+            {
+                throw new UserException("Lozinka nije ispravna");
+            }
+
+            entity.LozinkaSalt = GenerateSalt();
+            entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, request.Lozinka);
+
+            _context.SaveChanges();
+
+            foreach (var role in request.Ulogas)
+            {
+                Database.KorisnikUloga korisnikUlogas = new Database.KorisnikUloga
+                {
+                    KorisnikId = entity.Id,
+                    UlogaId = role
+                };
+
+                _context.KorisnikUlogas.Add(korisnikUlogas);
+            }
+
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.Korisnik>(entity);
+        }
+
+        public override Model.Korisnik Update(int id, KorisnikInsertRequest request)
+        {
+            var entity = _context.Korisniks.Include(x => x.KorisnikUlogas).FirstOrDefault(x => x.Id == id);
+            var stariLozinkaHash = entity.LozinkaHash;
+            var stariLozinkaSalt = entity.LozinkaSalt;
+            _mapper.Map(request, entity);
+            if (string.IsNullOrEmpty(request.Lozinka))
+            {
+                entity.LozinkaSalt = stariLozinkaSalt;
+                entity.LozinkaHash = stariLozinkaHash;
+            }
+            else
+            {
+                entity.LozinkaSalt = GenerateSalt();
+                entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, request.Lozinka);
+            }
+            _context.Korisniks.Update(entity);
+
+            var korisnikUlogaIdsToRemove = entity.KorisnikUlogas.Select(x => x.UlogaId).Except(request.Ulogas).ToList();
+            var korisnikUlogaToRemove = entity.KorisnikUlogas.Where(x => korisnikUlogaIdsToRemove.Any(y => y == x.UlogaId)).ToList();
+
+            var korisnikUlogaIdsToInsert = request.Ulogas.Except(entity.KorisnikUlogas.Select(x => x.UlogaId));
+            foreach (var uloga in korisnikUlogaIdsToInsert)
+            {
+                Database.KorisnikUloga korisnikUlogas = new Database.KorisnikUloga
+                {
+                    KorisnikId = entity.Id,
+                    UlogaId = uloga
+                };
+
+                _context.KorisnikUlogas.Add(korisnikUlogas);
+            }
+            _context.KorisnikUlogas.RemoveRange(korisnikUlogaToRemove);
+            _context.SaveChanges();
+            return _mapper.Map<Model.Korisnik>(entity);
+        }
 
         public async Task<Model.Korisnik> Login(string korisnickoIme, string lozinka)
         {

@@ -15,7 +15,6 @@ namespace eSport.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Ime = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Prezime = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Lozinka = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     BrojTelefona = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     KorisnickoIme = table.Column<string>(type: "nvarchar(450)", nullable: true),

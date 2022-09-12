@@ -58,7 +58,6 @@ namespace eSport.WinUI
             try
             {
                 return await url.WithBasicAuth(KorisnickoIme, Lozinka).PutJsonAsync(request).ReceiveJson<T>();
-
             }
             catch (FlurlHttpException ex)
             {
