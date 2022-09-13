@@ -18,5 +18,6 @@ namespace eSport.Database
         public virtual DbSet<Uloga> Ulogas { get; set; }
         public virtual DbSet<Korisnik> Korisniks { get; set; }
         public virtual DbSet<KorisnikUloga> KorisnikUlogas { get; set; }
+        public virtual DbSet<TipRezervacije> TipRezervacijes { get; set; }
     }
 }
