@@ -8,5 +8,7 @@
         public static string Uloga = "Uloga";
         public static string KorisnikUloga = "KorisnikUloga";
         public static string KorisnikUlogaUloga = "KorisnikUlogas.Uloga";
+        public static string TipRezervacije = "TipRezervacije";
+        public static string Cjenovnik = "Cjenovnik";
     }
 }

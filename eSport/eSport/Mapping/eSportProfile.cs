@@ -22,6 +22,10 @@ namespace eSport.Mapping
             CreateMap<Model.Korisnik, KorisnikInsertRequest>();
             CreateMap<Database.Uloga, Model.Uloga>().ReverseMap();
             CreateMap<Database.KorisnikUloga, Model.KorisnikUloga>().ReverseMap();
+            CreateMap<Database.TipRezervacije, Model.TipRezervacije>().ReverseMap();
+            CreateMap<Database.Cjenovnik, Model.Cjenovnik>().ReverseMap();
+            CreateMap<Model.Cjenovnik, CjenovnikInsertRequest>();
+            CreateMap<CjenovnikInsertRequest, Database.Cjenovnik>();
         }
     }
 }

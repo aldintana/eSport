@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace eSport.Model
+﻿namespace eSport.Model
 {
     public class TerenSearchRequest : BaseSearchRequest
     {

@@ -73,6 +73,8 @@ namespace eSport
             services.AddScoped<ITerenService, TerenService>();
             services.AddScoped<IKorisnikService, KorisnikService>();
             services.AddScoped<IUlogaService, UlogaService>();
+            services.AddScoped<ITipRezervacijeService, TipRezervacijeService>();
+            services.AddScoped<ICjenovnikService, CjenovnikService>();
             //services.AddControllers().AddNewtonsoftJson(x =>
             //        x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
