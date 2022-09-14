@@ -47,6 +47,14 @@ namespace eSport.Services
             {
                 entity = entity.Where(x => x.Datum.Date == search.Datum.Value.Date);
             }
+            if (search.OdDatuma.HasValue)
+            {
+                entity = entity.Where(x => x.Datum.Date > search.OdDatuma.Value.Date);
+            }
+            if (search.DoDatuma.HasValue)
+            {
+                entity = entity.Where(x => x.Datum.Date < search.DoDatuma.Value.Date);
+            }
 
             if (search?.IncludeList?.Length > 0)
             {

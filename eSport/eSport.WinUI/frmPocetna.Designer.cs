@@ -31,10 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.tereniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.korisniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.korisniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.terminiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -43,6 +44,7 @@
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tereniToolStripMenuItem,
+            this.terminiToolStripMenuItem,
             this.korisniciToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -57,6 +59,13 @@
             this.tereniToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.tereniToolStripMenuItem.Text = "Tereni";
             this.tereniToolStripMenuItem.Click += new System.EventHandler(this.tereniToolStripMenuItem_Click);
+            // 
+            // korisniciToolStripMenuItem
+            // 
+            this.korisniciToolStripMenuItem.Name = "korisniciToolStripMenuItem";
+            this.korisniciToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.korisniciToolStripMenuItem.Text = "Korisnici";
+            this.korisniciToolStripMenuItem.Click += new System.EventHandler(this.korisniciToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -74,12 +83,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // korisniciToolStripMenuItem
+            // terminiToolStripMenuItem
             // 
-            this.korisniciToolStripMenuItem.Name = "korisniciToolStripMenuItem";
-            this.korisniciToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.korisniciToolStripMenuItem.Text = "Korisnici";
-            this.korisniciToolStripMenuItem.Click += new System.EventHandler(this.korisniciToolStripMenuItem_Click);
+            this.terminiToolStripMenuItem.Name = "terminiToolStripMenuItem";
+            this.terminiToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.terminiToolStripMenuItem.Text = "Termini";
+            this.terminiToolStripMenuItem.Click += new System.EventHandler(this.terminiToolStripMenuItem_Click);
             // 
             // frmPocetna
             // 
@@ -110,6 +119,7 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem tereniToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem korisniciToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem terminiToolStripMenuItem;
     }
 }
 

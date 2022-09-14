@@ -1,4 +1,5 @@
 ﻿using eSport.WinUI.Korisnik;
+using eSport.WinUI.Termin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -111,6 +112,14 @@ namespace eSport.WinUI
             frmPrikazKorisnika.MdiParent = this;
             frmPrikazKorisnika.WindowState = FormWindowState.Maximized;
             frmPrikazKorisnika.Show();
+        }
+
+        private void terminiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPrikazTermina frmPrikazTermina = new frmPrikazTermina();
+            frmPrikazTermina.MdiParent = this;
+            frmPrikazTermina.WindowState = FormWindowState.Maximized;
+            frmPrikazTermina.Show();
         }
     }
 }
