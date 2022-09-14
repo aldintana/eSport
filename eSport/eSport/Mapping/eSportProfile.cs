@@ -1,9 +1,5 @@
 ﻿using AutoMapper;
 using eSport.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace eSport.Mapping
 {
@@ -26,6 +22,9 @@ namespace eSport.Mapping
             CreateMap<Database.Cjenovnik, Model.Cjenovnik>().ReverseMap();
             CreateMap<Model.Cjenovnik, CjenovnikInsertRequest>();
             CreateMap<CjenovnikInsertRequest, Database.Cjenovnik>();
+            CreateMap<Database.Termin, Model.Termin>().ReverseMap();
+            CreateMap<Model.Termin, TerminInsertRequest>();
+            CreateMap<TerminInsertRequest, Database.Termin>();
         }
     }
 }

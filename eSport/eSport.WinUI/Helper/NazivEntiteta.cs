@@ -10,5 +10,6 @@
         public static string KorisnikUlogaUloga = "KorisnikUlogas.Uloga";
         public static string TipRezervacije = "TipRezervacije";
         public static string Cjenovnik = "Cjenovnik";
+        public static string Termin = "Termin";
     }
 }
