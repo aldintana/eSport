@@ -1,5 +1,5 @@
 ﻿
-namespace eSport.WinUI.Termin
+namespace eSport.WinUI
 {
     partial class frmPrikazTermina
     {
@@ -30,6 +30,8 @@ namespace eSport.WinUI.Termin
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnNoviTermin = new System.Windows.Forms.Button();
+            this.btnPrikazi = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbTereni = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -39,7 +41,6 @@ namespace eSport.WinUI.Termin
             this.Kraj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TerenNaziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UkupnaCijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnPrikazi = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).BeginInit();
@@ -47,6 +48,7 @@ namespace eSport.WinUI.Termin
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnNoviTermin);
             this.groupBox1.Controls.Add(this.btnPrikazi);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cmbTereni);
@@ -56,6 +58,26 @@ namespace eSport.WinUI.Termin
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pretraga termina";
+            // 
+            // btnNoviTermin
+            // 
+            this.btnNoviTermin.Location = new System.Drawing.Point(695, 34);
+            this.btnNoviTermin.Name = "btnNoviTermin";
+            this.btnNoviTermin.Size = new System.Drawing.Size(75, 23);
+            this.btnNoviTermin.TabIndex = 3;
+            this.btnNoviTermin.Text = "Novi termin";
+            this.btnNoviTermin.UseVisualStyleBackColor = true;
+            this.btnNoviTermin.Click += new System.EventHandler(this.btnNoviTermin_Click);
+            // 
+            // btnPrikazi
+            // 
+            this.btnPrikazi.Location = new System.Drawing.Point(614, 34);
+            this.btnPrikazi.Name = "btnPrikazi";
+            this.btnPrikazi.Size = new System.Drawing.Size(75, 23);
+            this.btnPrikazi.TabIndex = 2;
+            this.btnPrikazi.Text = "Prikaži";
+            this.btnPrikazi.UseVisualStyleBackColor = true;
+            this.btnPrikazi.Click += new System.EventHandler(this.btnPrikazi_Click);
             // 
             // label1
             // 
@@ -142,16 +164,6 @@ namespace eSport.WinUI.Termin
             this.UkupnaCijena.Name = "UkupnaCijena";
             this.UkupnaCijena.ReadOnly = true;
             // 
-            // btnPrikazi
-            // 
-            this.btnPrikazi.Location = new System.Drawing.Point(695, 36);
-            this.btnPrikazi.Name = "btnPrikazi";
-            this.btnPrikazi.Size = new System.Drawing.Size(75, 23);
-            this.btnPrikazi.TabIndex = 2;
-            this.btnPrikazi.Text = "Prikaži";
-            this.btnPrikazi.UseVisualStyleBackColor = true;
-            this.btnPrikazi.Click += new System.EventHandler(this.btnPrikazi_Click);
-            // 
             // frmPrikazTermina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,5 +195,6 @@ namespace eSport.WinUI.Termin
         private System.Windows.Forms.ComboBox cmbTereni;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnPrikazi;
+        private System.Windows.Forms.Button btnNoviTermin;
     }
 }

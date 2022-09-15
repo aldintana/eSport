@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace eSport.WinUI.Termin
+namespace eSport.WinUI
 {
     public partial class frmPrikazTermina : Form
     {
@@ -54,7 +54,7 @@ namespace eSport.WinUI.Termin
             try
             {
                 var teren = cmbTereni.SelectedItem as Teren;
-                int? terenId = teren.Id;
+                int? terenId = teren?.Id;
                 if (terenId == 0)
                     terenId = null;
                 TerminSearchRequest searchRequest = new TerminSearchRequest
@@ -69,6 +69,16 @@ namespace eSport.WinUI.Termin
             catch (Exception)
             {
                 MessageBox.Show(Properties.Resources.Greška);
+            }
+        }
+
+        private void btnNoviTermin_Click(object sender, EventArgs e)
+        {
+            frmDetaljiTermina frmDetaljiTermina = new frmDetaljiTermina();
+            if (frmDetaljiTermina.ShowDialog() == DialogResult.OK)
+            {
+                dgvTermini.DataSource = null;
+                frmPrikazTermina_Load(sender, e);
             }
         }
     }

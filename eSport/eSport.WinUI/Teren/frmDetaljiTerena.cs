@@ -55,10 +55,11 @@ namespace eSport.WinUI
             {
                 try
                 {
+                    var sport = cmbSport.SelectedItem as Sport;
                     TerenInsertRequest request = new TerenInsertRequest
                     {
                         Naziv = txtNaziv.Text,
-                        SportId = cmbSport.SelectedIndex
+                        SportId = sport.Id
                     };
                     CjenovnikInsertRequest satniCjenovnik = new CjenovnikInsertRequest
                     {
