@@ -166,11 +166,18 @@ namespace eSport.WinUI
                         UkupnaCijena = Convert.ToInt32(txtCijena.Text)
                     };
                     var termin = await _terminService.Insert<Termin>(request);
-                    MessageBox.Show(Properties.Resources.UspješnaOperacija);
-                    DialogResult = DialogResult.OK;
-                    this.Close();
+                    if (termin == null)
+                    {
+                        MessageBox.Show("Zauzeto");
+                    }
+                    else
+                    {
+                        MessageBox.Show(Properties.Resources.UspješnaOperacija);
+                        DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
                 }
-                catch (Exception)
+                catch
                 {
                     MessageBox.Show(Properties.Resources.Greška);
                 }

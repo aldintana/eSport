@@ -68,5 +68,27 @@ namespace eSport.Services
 
             return _mapper.Map<List<Model.Termin>>(list);
         }
+
+        public override Model.Termin Insert(TerminInsertRequest request)
+        {
+            if (IsZauzet(request))
+                return null;
+            var entity = _mapper.Map<Database.Termin>(request);
+            entity.CreatedAt = DateTime.Now;
+            entity.IsDeleted = false;
+            _context.Add(entity);
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.Termin>(entity);
+        }
+
+        public bool IsZauzet(TerminInsertRequest request)
+        {
+            var entity = _context.Set<Database.Termin>().AsQueryable();
+            entity = entity.Where(x => x.TerenId == request.TerenId && ((x.Pocetak <= request.Pocetak && request.Pocetak < x.Kraj) || (x.Pocetak < request.Kraj && request.Kraj <= x.Kraj)));
+            if (entity != null && entity.Any())
+                return true;
+            return false;
+        }
     }
 }
