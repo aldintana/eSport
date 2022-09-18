@@ -82,11 +82,21 @@ namespace eSport.Services
             return _mapper.Map<Model.Termin>(entity);
         }
 
-        public bool IsZauzet(TerminInsertRequest request)
+        public override Model.Termin Update(int id, TerminInsertRequest request)
+        {
+            if (IsZauzet(request))
+                return null;
+            var entity = _context.Termins.Find(id);
+            _mapper.Map(request, entity);
+            _context.SaveChanges();
+            return _mapper.Map<Model.Termin>(entity);
+        }
+
+        public bool IsZauzet(TerminInsertRequest request, int? id = null)
         {
             var entity = _context.Set<Database.Termin>().AsQueryable();
             entity = entity.Where(x => x.TerenId == request.TerenId && ((x.Pocetak <= request.Pocetak && request.Pocetak < x.Kraj) || (x.Pocetak < request.Kraj && request.Kraj <= x.Kraj)));
-            if (entity != null && entity.Any())
+            if (entity != null && entity.Any() && (id != null && entity.FirstOrDefault(x => x.Id == id.GetValueOrDefault()) == null))
                 return true;
             return false;
         }

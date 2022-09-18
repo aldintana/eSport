@@ -2,10 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,9 +16,11 @@ namespace eSport.WinUI
         APIService _terenService = new APIService(NazivEntiteta.Teren);
         APIService _cjenovnikService = new APIService(NazivEntiteta.Cjenovnik);
         APIService _terminService = new APIService(NazivEntiteta.Termin);
-        public frmDetaljiTermina()
+        private Termin _termin;
+        public frmDetaljiTermina(Termin termin = null)
         {
             InitializeComponent();
+            _termin = termin;
         }
 
         private async void frmDetaljiTermina_Load(object sender, EventArgs e)
@@ -29,6 +28,13 @@ namespace eSport.WinUI
             await LoadSportove();
             cmbPocetak.DataSource = pocetak;
             cmbZavrsetak.DataSource = zavrsetak;
+            if(_termin != null)
+            {
+                cmbPocetak.SelectedItem = _termin.Pocetak.Hour;
+                cmbZavrsetak.SelectedItem = _termin.Kraj.Hour;
+                dtpDatum.Value = _termin.Datum;
+                cmbSport.SelectedValue = _termin.Teren.SportId;
+            }
         }
 
         private async Task LoadSportove()
@@ -40,7 +46,7 @@ namespace eSport.WinUI
             cmbSport.ValueMember = "Id";
         }
 
-        private async Task LoadTerene(int? sportId = null)
+        private async Task LoadTerene(int? sportId = null, int? terenId = null)
         {
             TerenSearchRequest searchRequest = new TerenSearchRequest
             {
@@ -50,16 +56,17 @@ namespace eSport.WinUI
             cmbTeren.DataSource = tereni;
             if (tereni != null && tereni.Count == 0)
             {
-                //cmbTeren.Items.Clear();
                 cmbTeren.DataSource = null;
                 cmbTeren.SelectedItem = null;
                 cmbTeren.ResetText();
             }
             cmbTeren.DisplayMember = "Naziv";
             cmbTeren.ValueMember = "Id";
+            if (terenId != null)
+                cmbTeren.SelectedValue = terenId;
         }
 
-        private async Task LoadCjenovnik(int? terenId = null)
+        private async Task LoadCjenovnik(int? terenId = null, int? cjenovnikId = null)
         {
             CjenovnikSearchRequest searchRequest = new CjenovnikSearchRequest
             {
@@ -70,13 +77,14 @@ namespace eSport.WinUI
             cmbTipRezervacije.DataSource = cjenovnici;
             if (cjenovnici != null && cjenovnici.Count == 0)
             {
-                //cmbTeren.Items.Clear();
                 cmbTipRezervacije.DataSource = null;
                 cmbTipRezervacije.SelectedItem = null;
                 cmbTipRezervacije.ResetText();
             }
             cmbTipRezervacije.DisplayMember = "Naziv";
             cmbTipRezervacije.ValueMember = "Id";
+            if (cjenovnikId != null)
+                cmbTipRezervacije.SelectedValue = cjenovnikId;
         }
 
         private async void cmbSport_SelectedIndexChanged(object sender, EventArgs e)
@@ -85,7 +93,10 @@ namespace eSport.WinUI
             var sport = comboBox.SelectedItem as Sport;
             if(sport != null)
             {
-                await LoadTerene(sport.Id);
+                if (_termin?.Teren?.SportId != sport.Id)
+                    await LoadTerene(sport.Id);
+                else
+                    await LoadTerene(sport.Id, _termin.Teren.Id);
             }
         }
 
@@ -95,7 +106,10 @@ namespace eSport.WinUI
             var teren = comboBox.SelectedItem as Teren;
             if (teren != null)
             {
-                await LoadCjenovnik(teren.Id);
+                if (_termin?.TerenId != teren.Id)
+                    await LoadCjenovnik(teren.Id);
+                else
+                    await LoadCjenovnik(teren.Id, _termin.CjenovnikId);
             }
         }
 
@@ -165,7 +179,15 @@ namespace eSport.WinUI
                         Kraj = krajDatum,
                         UkupnaCijena = Convert.ToInt32(txtCijena.Text)
                     };
-                    var termin = await _terminService.Insert<Termin>(request);
+                    Termin termin = null;
+                    if(_termin == null)
+                    {
+                        termin = await _terminService.Insert<Termin>(request);
+                    }
+                    else
+                    {
+                        termin = await _terminService.Update<Termin>(_termin.Id, request);
+                    }
                     if (termin == null)
                     {
                         MessageBox.Show("Zauzeto");

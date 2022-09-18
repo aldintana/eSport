@@ -123,6 +123,7 @@ namespace eSport.WinUI
             this.dgvTermini.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTermini.Size = new System.Drawing.Size(763, 330);
             this.dgvTermini.TabIndex = 0;
+            this.dgvTermini.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTermini_CellClick);
             // 
             // Datum
             // 
