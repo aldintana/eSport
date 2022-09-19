@@ -12,5 +12,6 @@
         public static string TipRezervacije = "TipRezervacije";
         public static string Cjenovnik = "Cjenovnik";
         public static string Termin = "Termin";
+        public static string Turnir = "Turnir";
     }
 }
