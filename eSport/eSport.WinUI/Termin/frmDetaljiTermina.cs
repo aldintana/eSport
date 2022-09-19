@@ -34,6 +34,9 @@ namespace eSport.WinUI
                 cmbZavrsetak.SelectedItem = _termin.Kraj.Hour;
                 dtpDatum.Value = _termin.Datum;
                 cmbSport.SelectedValue = _termin.Teren.SportId;
+                cbIsPotvrdjen.Checked = _termin.IsPotvrdjen;
+                if (cbIsPotvrdjen.Checked)
+                    cbIsPotvrdjen.Enabled = false;
             }
         }
 
@@ -173,7 +176,7 @@ namespace eSport.WinUI
                     {
                         CjenovnikId = cjenovnik.Id,
                         TerenId = teren.Id,
-                        IsPotvrdjen = true,
+                        IsPotvrdjen = cbIsPotvrdjen.Checked,
                         Datum = dtpDatum.Value,
                         Pocetak = pocetakDatum,
                         Kraj = krajDatum,
