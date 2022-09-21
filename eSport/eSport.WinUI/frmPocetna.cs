@@ -120,5 +120,13 @@ namespace eSport.WinUI
             frmPrikazTermina.WindowState = FormWindowState.Maximized;
             frmPrikazTermina.Show();
         }
+
+        private void turniriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPrikazTurnira frmPrikazTurnira = new frmPrikazTurnira();
+            frmPrikazTurnira.MdiParent = this;
+            frmPrikazTurnira.WindowState = FormWindowState.Maximized;
+            frmPrikazTurnira.Show();
+        }
     }
 }
