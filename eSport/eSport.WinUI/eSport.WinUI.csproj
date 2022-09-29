@@ -115,6 +115,12 @@
     <Compile Include="Termin\frmPrikazTermina.Designer.cs">
       <DependentUpon>frmPrikazTermina.cs</DependentUpon>
     </Compile>
+    <Compile Include="Turnir\frmDetaljiTurnira.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Turnir\frmDetaljiTurnira.Designer.cs">
+      <DependentUpon>frmDetaljiTurnira.cs</DependentUpon>
+    </Compile>
     <Compile Include="Turnir\frmPrikazTurnira.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Termin\frmPrikazTermina.resx">
       <DependentUpon>frmPrikazTermina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Turnir\frmDetaljiTurnira.resx">
+      <DependentUpon>frmDetaljiTurnira.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Turnir\frmPrikazTurnira.resx">
       <DependentUpon>frmPrikazTurnira.cs</DependentUpon>

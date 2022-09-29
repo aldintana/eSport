@@ -30,7 +30,7 @@ namespace eSport.WinUI
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnNoviTermin = new System.Windows.Forms.Button();
+            this.btnNoviTurnir = new System.Windows.Forms.Button();
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbTereni = new System.Windows.Forms.ComboBox();
@@ -49,7 +49,7 @@ namespace eSport.WinUI
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnNoviTermin);
+            this.groupBox1.Controls.Add(this.btnNoviTurnir);
             this.groupBox1.Controls.Add(this.btnPrikazi);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cmbTereni);
@@ -60,14 +60,15 @@ namespace eSport.WinUI
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pretraga turnira";
             // 
-            // btnNoviTermin
+            // btnNoviTurnir
             // 
-            this.btnNoviTermin.Location = new System.Drawing.Point(695, 34);
-            this.btnNoviTermin.Name = "btnNoviTermin";
-            this.btnNoviTermin.Size = new System.Drawing.Size(75, 23);
-            this.btnNoviTermin.TabIndex = 3;
-            this.btnNoviTermin.Text = "Novi turnir";
-            this.btnNoviTermin.UseVisualStyleBackColor = true;
+            this.btnNoviTurnir.Location = new System.Drawing.Point(695, 34);
+            this.btnNoviTurnir.Name = "btnNoviTurnir";
+            this.btnNoviTurnir.Size = new System.Drawing.Size(75, 23);
+            this.btnNoviTurnir.TabIndex = 3;
+            this.btnNoviTurnir.Text = "Novi turnir";
+            this.btnNoviTurnir.UseVisualStyleBackColor = true;
+            this.btnNoviTurnir.Click += new System.EventHandler(this.btnNoviTurnir_Click);
             // 
             // btnPrikazi
             // 
@@ -193,7 +194,7 @@ namespace eSport.WinUI
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnNoviTermin;
+        private System.Windows.Forms.Button btnNoviTurnir;
         private System.Windows.Forms.Button btnPrikazi;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbTereni;

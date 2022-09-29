@@ -34,7 +34,7 @@ namespace eSport.WinUI
                     IncludeList = new string[] { NazivEntiteta.Teren }
                 };
 
-                dgvTurniri.DataSource = await _turnirService.Get<List<Model.Termin>>(searchRequest);
+                dgvTurniri.DataSource = await _turnirService.Get<List<Model.Turnir>>(searchRequest);
             }
             catch (Exception)
             {
@@ -61,6 +61,16 @@ namespace eSport.WinUI
             catch (Exception)
             {
                 MessageBox.Show(Properties.Resources.Greška);
+            }
+        }
+
+        private void btnNoviTurnir_Click(object sender, EventArgs e)
+        {
+            frmDetaljiTurnira frmDetaljiTurnira = new frmDetaljiTurnira();
+            if (frmDetaljiTurnira.ShowDialog() == DialogResult.OK)
+            {
+                dgvTurniri.DataSource = null;
+                frmPrikazTurnira_Load(sender, e);
             }
         }
     }
