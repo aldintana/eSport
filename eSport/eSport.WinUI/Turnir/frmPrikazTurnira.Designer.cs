@@ -125,6 +125,7 @@ namespace eSport.WinUI
             this.dgvTurniri.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTurniri.Size = new System.Drawing.Size(763, 330);
             this.dgvTurniri.TabIndex = 0;
+            this.dgvTurniri.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTurniri_CellClick);
             // 
             // DatumPocetka
             // 

@@ -27,6 +27,17 @@ namespace eSport.WinUI
             await LoadSportove();
             cmbPocetak.DataSource = pocetak;
             cmbZavrsetak.DataSource = zavrsetak;
+            if (_turnir != null)
+            {
+                cmbPocetak.SelectedItem = _turnir.VrijemePocetka;
+                cmbZavrsetak.SelectedItem = _turnir.VrijemeKraja;
+                dtpDatumPocetka.Value = _turnir.DatumPocetka;
+                dtpDatumKraja.Value = _turnir.DatumKraja;
+                cmbSport.SelectedValue = _turnir.Teren.SportId;
+                cbIsPotvrdjen.Checked = _turnir.IsPotvrdjen;
+                if (cbIsPotvrdjen.Checked)
+                    cbIsPotvrdjen.Enabled = false;
+            }
         }
 
         private async Task LoadSportove()
@@ -216,6 +227,21 @@ namespace eSport.WinUI
         private void cmbTipRezervacije_SelectedIndexChanged(object sender, EventArgs e)
         {
             IzracunajCijenu();
+        }
+
+        private void cmbSport_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Validator.ValidacijaComboBox(errorProvider, cmbSport, e);
+        }
+
+        private void cmbTeren_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Validator.ValidacijaComboBox(errorProvider, cmbTeren, e);
+        }
+
+        private void cmbTipRezervacije_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Validator.ValidacijaComboBox(errorProvider, cmbTipRezervacije, e);
         }
     }
 }

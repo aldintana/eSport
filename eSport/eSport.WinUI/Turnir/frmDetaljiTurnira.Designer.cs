@@ -106,6 +106,7 @@ namespace eSport.WinUI
             this.cmbTipRezervacije.Size = new System.Drawing.Size(165, 21);
             this.cmbTipRezervacije.TabIndex = 26;
             this.cmbTipRezervacije.SelectedIndexChanged += new System.EventHandler(this.cmbTipRezervacije_SelectedIndexChanged);
+            this.cmbTipRezervacije.Validating += new System.ComponentModel.CancelEventHandler(this.cmbTipRezervacije_Validating);
             // 
             // label5
             // 
@@ -177,6 +178,7 @@ namespace eSport.WinUI
             this.cmbTeren.Size = new System.Drawing.Size(165, 21);
             this.cmbTeren.TabIndex = 18;
             this.cmbTeren.SelectedIndexChanged += new System.EventHandler(this.cmbTeren_SelectedIndexChanged);
+            this.cmbTeren.Validating += new System.ComponentModel.CancelEventHandler(this.cmbTeren_Validating);
             // 
             // label1
             // 
@@ -195,6 +197,7 @@ namespace eSport.WinUI
             this.cmbSport.Size = new System.Drawing.Size(165, 21);
             this.cmbSport.TabIndex = 16;
             this.cmbSport.SelectedIndexChanged += new System.EventHandler(this.cmbSport_SelectedIndexChanged);
+            this.cmbSport.Validating += new System.ComponentModel.CancelEventHandler(this.cmbSport_Validating);
             // 
             // label8
             // 
