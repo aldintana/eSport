@@ -28,6 +28,9 @@ namespace eSport.Mapping
             CreateMap<Database.Turnir, Model.Turnir>().ReverseMap();
             CreateMap<Model.Turnir, TurnirInsertRequest>();
             CreateMap<TurnirInsertRequest, Database.Turnir>();
+            CreateMap<Database.Tim, Model.Tim>().ReverseMap();
+            CreateMap<Model.Tim, TimInsertRequest>();
+            CreateMap<TimInsertRequest, Database.Tim>();
         }
     }
 }

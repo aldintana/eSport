@@ -77,6 +77,7 @@ namespace eSport
             services.AddScoped<ICjenovnikService, CjenovnikService>();
             services.AddScoped<ITerminService, TerminService>();
             services.AddScoped<ITurnirService, TurnirService>();
+            services.AddScoped<ITimService, TimService>();
             //services.AddControllers().AddNewtonsoftJson(x =>
             //        x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
