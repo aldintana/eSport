@@ -49,13 +49,15 @@ namespace eSport.WinUI
             this.label8 = new System.Windows.Forms.Label();
             this.dtpDatumKraja = new System.Windows.Forms.DateTimePicker();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtNaziv = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // cbIsPotvrdjen
             // 
             this.cbIsPotvrdjen.AutoSize = true;
-            this.cbIsPotvrdjen.Location = new System.Drawing.Point(442, 166);
+            this.cbIsPotvrdjen.Location = new System.Drawing.Point(442, 199);
             this.cbIsPotvrdjen.Name = "cbIsPotvrdjen";
             this.cbIsPotvrdjen.Size = new System.Drawing.Size(71, 17);
             this.cbIsPotvrdjen.TabIndex = 31;
@@ -64,7 +66,7 @@ namespace eSport.WinUI
             // 
             // btnSacuvaj
             // 
-            this.btnSacuvaj.Location = new System.Drawing.Point(519, 155);
+            this.btnSacuvaj.Location = new System.Drawing.Point(519, 188);
             this.btnSacuvaj.Name = "btnSacuvaj";
             this.btnSacuvaj.Size = new System.Drawing.Size(165, 37);
             this.btnSacuvaj.TabIndex = 30;
@@ -74,7 +76,7 @@ namespace eSport.WinUI
             // 
             // txtCijena
             // 
-            this.txtCijena.Location = new System.Drawing.Point(519, 40);
+            this.txtCijena.Location = new System.Drawing.Point(519, 94);
             this.txtCijena.Name = "txtCijena";
             this.txtCijena.ReadOnly = true;
             this.txtCijena.Size = new System.Drawing.Size(165, 20);
@@ -83,7 +85,7 @@ namespace eSport.WinUI
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(519, 20);
+            this.label7.Location = new System.Drawing.Point(519, 74);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 13);
             this.label7.TabIndex = 28;
@@ -92,7 +94,7 @@ namespace eSport.WinUI
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(348, 20);
+            this.label6.Location = new System.Drawing.Point(348, 74);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 13);
             this.label6.TabIndex = 27;
@@ -101,7 +103,7 @@ namespace eSport.WinUI
             // cmbTipRezervacije
             // 
             this.cmbTipRezervacije.FormattingEnabled = true;
-            this.cmbTipRezervacije.Location = new System.Drawing.Point(348, 39);
+            this.cmbTipRezervacije.Location = new System.Drawing.Point(348, 93);
             this.cmbTipRezervacije.Name = "cmbTipRezervacije";
             this.cmbTipRezervacije.Size = new System.Drawing.Size(165, 21);
             this.cmbTipRezervacije.TabIndex = 26;
@@ -111,7 +113,7 @@ namespace eSport.WinUI
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 75);
+            this.label5.Location = new System.Drawing.Point(3, 129);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 13);
             this.label5.TabIndex = 25;
@@ -119,7 +121,7 @@ namespace eSport.WinUI
             // 
             // dtpDatumPocetka
             // 
-            this.dtpDatumPocetka.Location = new System.Drawing.Point(6, 95);
+            this.dtpDatumPocetka.Location = new System.Drawing.Point(6, 149);
             this.dtpDatumPocetka.Name = "dtpDatumPocetka";
             this.dtpDatumPocetka.Size = new System.Drawing.Size(165, 20);
             this.dtpDatumPocetka.TabIndex = 24;
@@ -128,7 +130,7 @@ namespace eSport.WinUI
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(519, 75);
+            this.label4.Location = new System.Drawing.Point(519, 129);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 13);
             this.label4.TabIndex = 23;
@@ -137,7 +139,7 @@ namespace eSport.WinUI
             // cmbZavrsetak
             // 
             this.cmbZavrsetak.FormattingEnabled = true;
-            this.cmbZavrsetak.Location = new System.Drawing.Point(519, 94);
+            this.cmbZavrsetak.Location = new System.Drawing.Point(519, 148);
             this.cmbZavrsetak.Name = "cmbZavrsetak";
             this.cmbZavrsetak.Size = new System.Drawing.Size(165, 21);
             this.cmbZavrsetak.TabIndex = 22;
@@ -146,7 +148,7 @@ namespace eSport.WinUI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(348, 75);
+            this.label3.Location = new System.Drawing.Point(348, 129);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 13);
             this.label3.TabIndex = 21;
@@ -155,7 +157,7 @@ namespace eSport.WinUI
             // cmbPocetak
             // 
             this.cmbPocetak.FormattingEnabled = true;
-            this.cmbPocetak.Location = new System.Drawing.Point(348, 94);
+            this.cmbPocetak.Location = new System.Drawing.Point(348, 148);
             this.cmbPocetak.Name = "cmbPocetak";
             this.cmbPocetak.Size = new System.Drawing.Size(165, 21);
             this.cmbPocetak.TabIndex = 20;
@@ -164,7 +166,7 @@ namespace eSport.WinUI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(177, 20);
+            this.label2.Location = new System.Drawing.Point(177, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 19;
@@ -173,7 +175,7 @@ namespace eSport.WinUI
             // cmbTeren
             // 
             this.cmbTeren.FormattingEnabled = true;
-            this.cmbTeren.Location = new System.Drawing.Point(177, 39);
+            this.cmbTeren.Location = new System.Drawing.Point(177, 93);
             this.cmbTeren.Name = "cmbTeren";
             this.cmbTeren.Size = new System.Drawing.Size(165, 21);
             this.cmbTeren.TabIndex = 18;
@@ -183,7 +185,7 @@ namespace eSport.WinUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 20);
+            this.label1.Location = new System.Drawing.Point(6, 74);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 17;
@@ -192,7 +194,7 @@ namespace eSport.WinUI
             // cmbSport
             // 
             this.cmbSport.FormattingEnabled = true;
-            this.cmbSport.Location = new System.Drawing.Point(6, 39);
+            this.cmbSport.Location = new System.Drawing.Point(6, 93);
             this.cmbSport.Name = "cmbSport";
             this.cmbSport.Size = new System.Drawing.Size(165, 21);
             this.cmbSport.TabIndex = 16;
@@ -202,7 +204,7 @@ namespace eSport.WinUI
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(174, 75);
+            this.label8.Location = new System.Drawing.Point(174, 129);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(67, 13);
             this.label8.TabIndex = 33;
@@ -210,7 +212,7 @@ namespace eSport.WinUI
             // 
             // dtpDatumKraja
             // 
-            this.dtpDatumKraja.Location = new System.Drawing.Point(177, 95);
+            this.dtpDatumKraja.Location = new System.Drawing.Point(177, 149);
             this.dtpDatumKraja.Name = "dtpDatumKraja";
             this.dtpDatumKraja.Size = new System.Drawing.Size(165, 20);
             this.dtpDatumKraja.TabIndex = 32;
@@ -220,11 +222,29 @@ namespace eSport.WinUI
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // txtNaziv
+            // 
+            this.txtNaziv.Location = new System.Drawing.Point(6, 45);
+            this.txtNaziv.Name = "txtNaziv";
+            this.txtNaziv.Size = new System.Drawing.Size(336, 20);
+            this.txtNaziv.TabIndex = 34;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 26);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 13);
+            this.label9.TabIndex = 35;
+            this.label9.Text = "Naziv:";
+            // 
             // frmDetaljiTurnira
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(696, 210);
+            this.ClientSize = new System.Drawing.Size(696, 237);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtNaziv);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dtpDatumKraja);
             this.Controls.Add(this.cbIsPotvrdjen);
@@ -273,5 +293,7 @@ namespace eSport.WinUI
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dtpDatumKraja;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtNaziv;
     }
 }

@@ -36,6 +36,7 @@ namespace eSport.WinUI
             this.cmbTereni = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvTurniri = new System.Windows.Forms.DataGridView();
+            this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatumPocetka = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatumKraja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VrijemePocetka = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,6 +114,7 @@ namespace eSport.WinUI
             this.dgvTurniri.AllowUserToDeleteRows = false;
             this.dgvTurniri.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTurniri.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Naziv,
             this.DatumPocetka,
             this.DatumKraja,
             this.VrijemePocetka,
@@ -126,6 +128,14 @@ namespace eSport.WinUI
             this.dgvTurniri.Size = new System.Drawing.Size(763, 330);
             this.dgvTurniri.TabIndex = 0;
             this.dgvTurniri.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTurniri_CellClick);
+            // 
+            // Naziv
+            // 
+            this.Naziv.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Naziv.DataPropertyName = "Naziv";
+            this.Naziv.HeaderText = "Naziv";
+            this.Naziv.Name = "Naziv";
+            this.Naziv.ReadOnly = true;
             // 
             // DatumPocetka
             // 
@@ -201,6 +211,7 @@ namespace eSport.WinUI
         private System.Windows.Forms.ComboBox cmbTereni;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvTurniri;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
         private System.Windows.Forms.DataGridViewTextBoxColumn DatumPocetka;
         private System.Windows.Forms.DataGridViewTextBoxColumn DatumKraja;
         private System.Windows.Forms.DataGridViewTextBoxColumn VrijemePocetka;

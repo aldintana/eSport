@@ -29,6 +29,7 @@ namespace eSport.WinUI
             cmbZavrsetak.DataSource = zavrsetak;
             if (_turnir != null)
             {
+                txtNaziv.Text = _turnir.Naziv;
                 cmbPocetak.SelectedItem = _turnir.VrijemePocetka;
                 cmbZavrsetak.SelectedItem = _turnir.VrijemeKraja;
                 dtpDatumPocetka.Value = _turnir.DatumPocetka;
@@ -164,7 +165,7 @@ namespace eSport.WinUI
                     var kraj = cmbZavrsetak.SelectedItem as int?;
                     var datumPocetka = dtpDatumPocetka.Value.Date;
                     var datumKraja = dtpDatumKraja.Value.Date;
-                    
+
                     TurnirInsertRequest request = new TurnirInsertRequest
                     {
                         CjenovnikId = cjenovnik.Id,
@@ -174,7 +175,8 @@ namespace eSport.WinUI
                         DatumKraja = dtpDatumKraja.Value,
                         VrijemePocetka = pocetna.GetValueOrDefault(),
                         VrijemeKraja = kraj.GetValueOrDefault(),
-                        UkupnaCijena = Convert.ToInt32(txtCijena.Text)
+                        UkupnaCijena = Convert.ToInt32(txtCijena.Text),
+                        Naziv = txtNaziv.Text
                     };
                     Turnir turnir = null;
                     if (_turnir == null)

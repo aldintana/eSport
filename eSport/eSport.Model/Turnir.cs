@@ -5,6 +5,7 @@ namespace eSport.Model
     public class Turnir
     {
         public int Id { get; set; }
+        public string Naziv { get; set; }
         public DateTime DatumPocetka { get; set; }
         public DateTime DatumKraja { get; set; }
         public int VrijemePocetka { get; set; }
