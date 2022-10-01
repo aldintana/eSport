@@ -22,5 +22,6 @@ namespace eSport.Database
         public virtual DbSet<Cjenovnik> Cjenovniks { get; set; }
         public virtual DbSet<Termin> Termins { get; set; }
         public virtual DbSet<Turnir> Turnirs { get; set; }
+        public virtual DbSet<Tim> Tims { get; set; }
     }
 }
