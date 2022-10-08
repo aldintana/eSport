@@ -51,6 +51,7 @@ namespace eSport.WinUI
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtNaziv = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnDodajTim = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -238,11 +239,22 @@ namespace eSport.WinUI
             this.label9.TabIndex = 35;
             this.label9.Text = "Naziv:";
             // 
+            // btnDodajTim
+            // 
+            this.btnDodajTim.Location = new System.Drawing.Point(519, 45);
+            this.btnDodajTim.Name = "btnDodajTim";
+            this.btnDodajTim.Size = new System.Drawing.Size(165, 23);
+            this.btnDodajTim.TabIndex = 36;
+            this.btnDodajTim.Text = "Dodaj tim";
+            this.btnDodajTim.UseVisualStyleBackColor = true;
+            this.btnDodajTim.Click += new System.EventHandler(this.btnDodajTim_Click);
+            // 
             // frmDetaljiTurnira
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(696, 237);
+            this.Controls.Add(this.btnDodajTim);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtNaziv);
             this.Controls.Add(this.label8);
@@ -264,7 +276,7 @@ namespace eSport.WinUI
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbSport);
             this.Name = "frmDetaljiTurnira";
-            this.Text = "frmDetaljiTurnira";
+            this.Text = "Novi turnir";
             this.Load += new System.EventHandler(this.frmDetaljiTurnira_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
@@ -295,5 +307,6 @@ namespace eSport.WinUI
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtNaziv;
+        private System.Windows.Forms.Button btnDodajTim;
     }
 }

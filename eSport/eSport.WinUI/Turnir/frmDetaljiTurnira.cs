@@ -39,6 +39,10 @@ namespace eSport.WinUI
                 if (cbIsPotvrdjen.Checked)
                     cbIsPotvrdjen.Enabled = false;
             }
+            else
+            {
+                btnDodajTim.Hide();
+            }
         }
 
         private async Task LoadSportove()
@@ -244,6 +248,15 @@ namespace eSport.WinUI
         private void cmbTipRezervacije_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Validator.ValidacijaComboBox(errorProvider, cmbTipRezervacije, e);
+        }
+
+        private void btnDodajTim_Click(object sender, EventArgs e)
+        {
+            frmDetaljiTima frmDetaljiTima = new frmDetaljiTima(_turnir);
+            if (frmDetaljiTima.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
     }
 }
