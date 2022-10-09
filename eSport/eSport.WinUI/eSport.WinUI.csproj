@@ -127,6 +127,12 @@
     <Compile Include="Turnir\frmDetaljiTurnira.Designer.cs">
       <DependentUpon>frmDetaljiTurnira.cs</DependentUpon>
     </Compile>
+    <Compile Include="Turnir\frmDetaljiUtakmice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Turnir\frmDetaljiUtakmice.Designer.cs">
+      <DependentUpon>frmDetaljiUtakmice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Turnir\frmPrikazTurnira.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Turnir\frmDetaljiTurnira.resx">
       <DependentUpon>frmDetaljiTurnira.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Turnir\frmDetaljiUtakmice.resx">
+      <DependentUpon>frmDetaljiUtakmice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Turnir\frmPrikazTurnira.resx">
       <DependentUpon>frmPrikazTurnira.cs</DependentUpon>
