@@ -17,6 +17,7 @@ namespace eSport.Model
         public virtual Korisnik Korisnik { get; set; }
         public int? KorisnikId { get; set; }
         public bool IsPotvrdjen { get; set; }
+        public bool IsGenerisan { get; set; }
         public int UkupnaCijena { get; set; }
         public string TerenNaziv => Teren?.Naziv;
     }

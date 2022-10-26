@@ -25,6 +25,7 @@ namespace eSport.WinUI
         private async void frmDetaljiTurnira_Load(object sender, EventArgs e)
         {
             await LoadSportove();
+            ProvjeraIsGenerisan();
             cmbPocetak.DataSource = pocetak;
             cmbZavrsetak.DataSource = zavrsetak;
             if (_turnir != null)
@@ -43,6 +44,39 @@ namespace eSport.WinUI
             {
                 btnDodajTim.Hide();
             }
+        }
+
+        private void ProvjeraIsGenerisan()
+        {
+            if(_turnir != null)
+            {
+                if (_turnir.IsGenerisan)
+                {
+                    txtCijena.ReadOnly = true;
+                    txtNaziv.ReadOnly = true;
+                    dtpDatumKraja.Enabled = false;
+                    dtpDatumPocetka.Enabled = false;
+                    btnDodajTim.Visible = false;
+                    btnGenerisi.Visible = false;
+                    btnSacuvaj.Visible = false;
+                    cmbPocetak.Enabled = false;
+                    cmbZavrsetak.Enabled = false;
+                    cmbSport.Enabled = false;
+                    cmbTeren.Enabled = false;
+                    cmbTipRezervacije.Enabled = false;
+                    cbIsPotvrdjen.Visible = false;
+                    errorProvider.Clear();
+                }
+                else
+                {
+                    btnTabela.Visible = false;
+                }
+            }
+            else
+            {
+                btnTabela.Visible = false;
+            }
+            
         }
 
         private async Task LoadSportove()
@@ -254,6 +288,28 @@ namespace eSport.WinUI
         {
             frmDetaljiTima frmDetaljiTima = new frmDetaljiTima(_turnir);
             if (frmDetaljiTima.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
+
+        private async void btnGenerisi_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _turnir.IsGenerisan = true;
+                var turnir = await _turnirService.Update<Turnir>(_turnir.Id, _turnir);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(Properties.Resources.Greška);
+            }
+        }
+
+        private void btnTabela_Click(object sender, EventArgs e)
+        {
+            frmTabelaTurnira frmTablicaTurnira = new frmTabelaTurnira(_turnir);
+            if (frmTablicaTurnira.ShowDialog() == DialogResult.OK)
             {
 
             }

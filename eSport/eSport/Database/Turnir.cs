@@ -17,5 +17,7 @@ namespace eSport.Database
         public int? KorisnikId { get; set; }
         public bool IsPotvrdjen { get; set; }
         public int UkupnaCijena { get; set; }
+        public bool IsGenerisan { get; set; }
+
     }
 }

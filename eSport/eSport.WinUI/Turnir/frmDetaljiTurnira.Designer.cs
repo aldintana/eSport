@@ -52,6 +52,8 @@ namespace eSport.WinUI
             this.txtNaziv = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnDodajTim = new System.Windows.Forms.Button();
+            this.btnGenerisi = new System.Windows.Forms.Button();
+            this.btnTabela = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -241,7 +243,7 @@ namespace eSport.WinUI
             // 
             // btnDodajTim
             // 
-            this.btnDodajTim.Location = new System.Drawing.Point(519, 45);
+            this.btnDodajTim.Location = new System.Drawing.Point(348, 43);
             this.btnDodajTim.Name = "btnDodajTim";
             this.btnDodajTim.Size = new System.Drawing.Size(165, 23);
             this.btnDodajTim.TabIndex = 36;
@@ -249,11 +251,33 @@ namespace eSport.WinUI
             this.btnDodajTim.UseVisualStyleBackColor = true;
             this.btnDodajTim.Click += new System.EventHandler(this.btnDodajTim_Click);
             // 
+            // btnGenerisi
+            // 
+            this.btnGenerisi.Location = new System.Drawing.Point(519, 42);
+            this.btnGenerisi.Name = "btnGenerisi";
+            this.btnGenerisi.Size = new System.Drawing.Size(165, 23);
+            this.btnGenerisi.TabIndex = 37;
+            this.btnGenerisi.Text = "Generiši turnir";
+            this.btnGenerisi.UseVisualStyleBackColor = true;
+            this.btnGenerisi.Click += new System.EventHandler(this.btnGenerisi_Click);
+            // 
+            // btnTabela
+            // 
+            this.btnTabela.Location = new System.Drawing.Point(269, 188);
+            this.btnTabela.Name = "btnTabela";
+            this.btnTabela.Size = new System.Drawing.Size(165, 37);
+            this.btnTabela.TabIndex = 38;
+            this.btnTabela.Text = "Prikaži tabelu";
+            this.btnTabela.UseVisualStyleBackColor = true;
+            this.btnTabela.Click += new System.EventHandler(this.btnTabela_Click);
+            // 
             // frmDetaljiTurnira
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(696, 237);
+            this.Controls.Add(this.btnTabela);
+            this.Controls.Add(this.btnGenerisi);
             this.Controls.Add(this.btnDodajTim);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtNaziv);
@@ -308,5 +332,7 @@ namespace eSport.WinUI
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtNaziv;
         private System.Windows.Forms.Button btnDodajTim;
+        private System.Windows.Forms.Button btnGenerisi;
+        private System.Windows.Forms.Button btnTabela;
     }
 }

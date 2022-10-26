@@ -139,6 +139,12 @@
     <Compile Include="Turnir\frmPrikazTurnira.Designer.cs">
       <DependentUpon>frmPrikazTurnira.cs</DependentUpon>
     </Compile>
+    <Compile Include="Turnir\frmTabelaTurnira.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Turnir\frmTabelaTurnira.Designer.cs">
+      <DependentUpon>frmTabelaTurnira.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Turnir\frmPrikazTurnira.resx">
       <DependentUpon>frmPrikazTurnira.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Turnir\frmTabelaTurnira.resx">
+      <DependentUpon>frmTabelaTurnira.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
