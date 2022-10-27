@@ -32,6 +32,11 @@ namespace eSport.Services
                 entity = entity.Where(x => x.TurnirId == search.TurnirId);
             }
 
+            if (search.IsZavrsena.HasValue)
+            {
+                entity = entity.Where(x => x.IsZavrsena == search.IsZavrsena);
+            }
+
             if (search?.IncludeList?.Length > 0)
             {
                 foreach (var item in search.IncludeList)

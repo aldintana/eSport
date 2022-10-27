@@ -13,5 +13,6 @@ namespace eSport.Database
         public int BrojGolovaDomacina { get; set; }
         public int BrojGolovaGosta { get; set; }
         public DateTime VrijemeUtakmice { get; set; }
+        public bool IsZavrsena { get; set; }
     }
 }

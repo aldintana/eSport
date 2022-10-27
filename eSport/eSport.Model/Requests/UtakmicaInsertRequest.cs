@@ -9,6 +9,7 @@ namespace eSport.Model
         public int TurnirId { get; set; }
         public int BrojGolovaDomacina { get; set; }
         public int BrojGolovaGosta { get; set; }
+        public bool IsZavrsena { get; set; }
         public DateTime VrijemeUtakmice { get; set; }
     }
 }

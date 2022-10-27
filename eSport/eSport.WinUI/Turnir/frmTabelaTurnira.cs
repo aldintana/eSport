@@ -35,5 +35,14 @@ namespace eSport.WinUI
                 MessageBox.Show(Properties.Resources.Greška);
             }
         }
+
+        private void btnPrikaziUtakmice_Click(object sender, EventArgs e)
+        {
+            frmPrikazUtakmica frmPrikazUtakmica = new frmPrikazUtakmica(_turnir);
+            if (frmPrikazUtakmica.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
     }
 }
