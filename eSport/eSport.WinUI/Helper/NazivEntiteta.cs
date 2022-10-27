@@ -14,5 +14,6 @@
         public static string Termin = "Termin";
         public static string Turnir = "Turnir";
         public static string Tim = "Tim";
+        public static string Utakmica = "Utakmica";
     }
 }

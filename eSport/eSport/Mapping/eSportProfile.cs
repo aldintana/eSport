@@ -31,6 +31,9 @@ namespace eSport.Mapping
             CreateMap<Database.Tim, Model.Tim>().ReverseMap();
             CreateMap<Model.Tim, TimInsertRequest>();
             CreateMap<TimInsertRequest, Database.Tim>();
+            CreateMap<Database.Utakmica, Model.Utakmica>().ReverseMap();
+            CreateMap<Model.Utakmica, UtakmicaInsertRequest>();
+            CreateMap<UtakmicaInsertRequest, Database.Utakmica>();
         }
     }
 }
