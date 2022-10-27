@@ -4,5 +4,6 @@ namespace eSport.Services
 {
     public interface ITurnirService : ICRUDService<Model.Turnir, TurnirSearchRequest, TurnirInsertRequest, TurnirInsertRequest>
     {
+        bool GenerisiTurnir(int id);
     }
 }

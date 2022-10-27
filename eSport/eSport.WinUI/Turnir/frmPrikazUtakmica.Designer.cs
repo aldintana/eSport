@@ -77,7 +77,7 @@
             // Domacin
             // 
             this.Domacin.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Domacin.DataPropertyName = "Domacin";
+            this.Domacin.DataPropertyName = "DomacinNaziv";
             this.Domacin.HeaderText = "Domacin";
             this.Domacin.Name = "Domacin";
             this.Domacin.ReadOnly = true;
@@ -85,7 +85,7 @@
             // Gost
             // 
             this.Gost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Gost.DataPropertyName = "Gost";
+            this.Gost.DataPropertyName = "GostNaziv";
             this.Gost.HeaderText = "Gost";
             this.Gost.Name = "Gost";
             this.Gost.ReadOnly = true;

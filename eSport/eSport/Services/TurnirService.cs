@@ -2,6 +2,7 @@
 using eSport.Database;
 using eSport.Model;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,6 +14,47 @@ namespace eSport.Services
         {
 
         }
+
+        public bool GenerisiTurnir(int id)
+        {
+            var turnir = _context.Turnirs.FirstOrDefault(t => t.Id == id);
+            if (turnir == null)
+                return false;
+
+            turnir.IsGenerisan = true;
+
+            var timovi = _context.Tims.Where(t => t.TurnirId == id).ToList();
+
+            var utakmice = new List<Database.Utakmica>();
+
+            for (int i = 0; i < timovi.Count; i++)
+            {
+                for (int j = 0; j < timovi.Count; j++)
+                {
+                    if (i != j && i < j)
+                    {
+                        var utakmica = new Database.Utakmica
+                        {
+                            DomacinId = timovi[i].Id,
+                            GostId = timovi[j].Id,
+                            TurnirId = id,
+                            BrojGolovaDomacina = 0,
+                            BrojGolovaGosta = 0,
+                            IsZavrsena = false,
+                            VrijemeUtakmice = DateTime.Now
+                        };
+                        utakmice.Add(utakmica);
+                    }
+                }
+            }
+
+            _context.Utakmicas.AddRange(utakmice);
+
+            _context.SaveChanges();
+
+            return true;
+        }
+
         public override IEnumerable<Model.Turnir> Get(TurnirSearchRequest search = null)
         {
             var entity = _context.Set<Database.Turnir>().AsQueryable();

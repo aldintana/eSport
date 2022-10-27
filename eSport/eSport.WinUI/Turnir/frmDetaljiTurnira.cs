@@ -298,8 +298,7 @@ namespace eSport.WinUI
         {
             try
             {
-                _turnir.IsGenerisan = true;
-                var turnir = await _turnirService.Update<Turnir>(_turnir.Id, _turnir);
+                var turnir = await _turnirService.GenerisiTurnir<Turnir>(_turnir.Id, _turnir);
             }
             catch (Exception)
             {

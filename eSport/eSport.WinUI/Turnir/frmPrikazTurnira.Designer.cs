@@ -192,7 +192,7 @@ namespace eSport.WinUI
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmPrikazTurnira";
-            this.Text = "frmPrikazTurnira";
+            this.Text = "Turnir";
             this.Load += new System.EventHandler(this.frmPrikazTurnira_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

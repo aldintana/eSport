@@ -15,5 +15,7 @@ namespace eSport.Model
         public int BrojGolovaGosta { get; set; }
         public DateTime VrijemeUtakmice { get; set; }
         public bool IsZavrsena { get; set; }
+        public string DomacinNaziv => Domacin?.Naziv;
+        public string GostNaziv => Gost?.Naziv;
     }
 }

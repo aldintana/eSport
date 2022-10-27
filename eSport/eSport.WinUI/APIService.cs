@@ -78,5 +78,19 @@ namespace eSport.WinUI
 
             MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        public async Task<T> GenerisiTurnir<T>(object id, object request)
+        {
+            var url = $"{Properties.Settings.Default.ApiURL}/{_route}/generisiTurnir/{id}";
+            try
+            {
+                return await url.WithBasicAuth(KorisnickoIme, Lozinka).PutJsonAsync(request).ReceiveJson<T>();
+            }
+            catch (FlurlHttpException ex)
+            {
+                //GenerateMessage(ex);
+                return default(T);
+            }
+        }
     }
 }
