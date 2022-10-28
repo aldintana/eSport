@@ -16,7 +16,6 @@ namespace eSport.WinUI
         APIService _cjenovnikService = new APIService(NazivEntiteta.Cjenovnik);
         APIService _turnirService = new APIService(NazivEntiteta.Turnir);
         private Turnir _turnir;
-        private Sport _sport;
         public frmDetaljiTurnira(Turnir turnir = null)
         {
             InitializeComponent();
@@ -44,6 +43,7 @@ namespace eSport.WinUI
             else
             {
                 btnDodajTim.Hide();
+                btnGenerisi.Hide();
             }
         }
 

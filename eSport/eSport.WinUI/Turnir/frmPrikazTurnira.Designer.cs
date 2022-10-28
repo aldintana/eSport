@@ -34,7 +34,7 @@ namespace eSport.WinUI
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbTereni = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbTurniri = new System.Windows.Forms.GroupBox();
             this.dgvTurniri = new System.Windows.Forms.DataGridView();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatumPocetka = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,7 +44,7 @@ namespace eSport.WinUI
             this.TerenNaziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UkupnaCijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbTurniri.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTurniri)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,15 +98,15 @@ namespace eSport.WinUI
             this.cmbTereni.Size = new System.Drawing.Size(190, 21);
             this.cmbTereni.TabIndex = 0;
             // 
-            // groupBox2
+            // gbTurniri
             // 
-            this.groupBox2.Controls.Add(this.dgvTurniri);
-            this.groupBox2.Location = new System.Drawing.Point(12, 82);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(776, 356);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Nadolazeći turniri";
+            this.gbTurniri.Controls.Add(this.dgvTurniri);
+            this.gbTurniri.Location = new System.Drawing.Point(12, 82);
+            this.gbTurniri.Name = "gbTurniri";
+            this.gbTurniri.Size = new System.Drawing.Size(776, 356);
+            this.gbTurniri.TabIndex = 2;
+            this.gbTurniri.TabStop = false;
+            this.gbTurniri.Text = "Turniri";
             // 
             // dgvTurniri
             // 
@@ -189,14 +189,14 @@ namespace eSport.WinUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gbTurniri);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmPrikazTurnira";
             this.Text = "Turnir";
             this.Load += new System.EventHandler(this.frmPrikazTurnira_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
+            this.gbTurniri.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTurniri)).EndInit();
             this.ResumeLayout(false);
 
@@ -209,7 +209,7 @@ namespace eSport.WinUI
         private System.Windows.Forms.Button btnPrikazi;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbTereni;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbTurniri;
         private System.Windows.Forms.DataGridView dgvTurniri;
         private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
         private System.Windows.Forms.DataGridViewTextBoxColumn DatumPocetka;

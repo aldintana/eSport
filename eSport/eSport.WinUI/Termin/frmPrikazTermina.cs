@@ -1,13 +1,8 @@
-﻿using eSport.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using eSport.Model;
 using System.Windows.Forms;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace eSport.WinUI
 {
@@ -15,10 +10,16 @@ namespace eSport.WinUI
     {
         APIService _terminService = new APIService(NazivEntiteta.Termin);
         APIService _terenService = new APIService(NazivEntiteta.Teren);
-        public frmPrikazTermina()
+        bool _aktivni;
+        public frmPrikazTermina(bool aktivni = true)
         {
             InitializeComponent();
             dgvTermini.AutoGenerateColumns = false;
+            _aktivni = aktivni;
+            if (aktivni)
+                gbTermini.Text = "Aktivni termini";
+            else
+                gbTermini.Text = "Historija termina";
         }
 
         private async Task LoadTerene()
@@ -37,10 +38,12 @@ namespace eSport.WinUI
                 await LoadTerene();
                 TerminSearchRequest searchRequest = new TerminSearchRequest
                 {
-                    IncludeList = new string[] { NazivEntiteta.Teren },
-                    OdDatuma = DateTime.Now
+                    IncludeList = new string[] { NazivEntiteta.Teren }
                 };
-
+                if (_aktivni)
+                    searchRequest.OdDatuma = DateTime.Now;
+                else
+                    searchRequest.DoDatuma = DateTime.Now;
                 dgvTermini.DataSource = await _terminService.Get<List<Model.Termin>>(searchRequest);
             }
             catch (Exception)

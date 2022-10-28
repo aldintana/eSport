@@ -1,13 +1,6 @@
-﻿using eSport.WinUI.Korisnik;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
+using eSport.WinUI.Korisnik;
 
 namespace eSport.WinUI
 {
@@ -113,17 +106,33 @@ namespace eSport.WinUI
             frmPrikazKorisnika.Show();
         }
 
-        private void terminiToolStripMenuItem_Click(object sender, EventArgs e)
+        private void historijaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPrikazTermina frmPrikazTermina = new frmPrikazTermina();
+            frmPrikazTermina frmPrikazTermina = new frmPrikazTermina(false);
             frmPrikazTermina.MdiParent = this;
             frmPrikazTermina.WindowState = FormWindowState.Maximized;
             frmPrikazTermina.Show();
         }
 
-        private void turniriToolStripMenuItem_Click(object sender, EventArgs e)
+        private void aktivniToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPrikazTurnira frmPrikazTurnira = new frmPrikazTurnira();
+            frmPrikazTermina frmPrikazTermina = new frmPrikazTermina(true);
+            frmPrikazTermina.MdiParent = this;
+            frmPrikazTermina.WindowState = FormWindowState.Maximized;
+            frmPrikazTermina.Show();
+        }
+
+        private void aktivniToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmPrikazTurnira frmPrikazTurnira = new frmPrikazTurnira(true);
+            frmPrikazTurnira.MdiParent = this;
+            frmPrikazTurnira.WindowState = FormWindowState.Maximized;
+            frmPrikazTurnira.Show();
+        }
+
+        private void historijaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmPrikazTurnira frmPrikazTurnira = new frmPrikazTurnira(false);
             frmPrikazTurnira.MdiParent = this;
             frmPrikazTurnira.WindowState = FormWindowState.Maximized;
             frmPrikazTurnira.Show();

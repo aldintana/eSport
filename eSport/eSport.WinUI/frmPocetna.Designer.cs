@@ -32,11 +32,15 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.tereniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.terminiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aktivniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.turniriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.korisniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.turniriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aktivniToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.historijaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -64,10 +68,37 @@
             // 
             // terminiToolStripMenuItem
             // 
+            this.terminiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aktivniToolStripMenuItem,
+            this.historijaToolStripMenuItem});
             this.terminiToolStripMenuItem.Name = "terminiToolStripMenuItem";
             this.terminiToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.terminiToolStripMenuItem.Text = "Termini";
-            this.terminiToolStripMenuItem.Click += new System.EventHandler(this.terminiToolStripMenuItem_Click);
+            // 
+            // aktivniToolStripMenuItem
+            // 
+            this.aktivniToolStripMenuItem.Name = "aktivniToolStripMenuItem";
+            this.aktivniToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aktivniToolStripMenuItem.Text = "Aktivni";
+            this.aktivniToolStripMenuItem.Click += new System.EventHandler(this.aktivniToolStripMenuItem_Click);
+            // 
+            // historijaToolStripMenuItem
+            // 
+            this.historijaToolStripMenuItem.Name = "historijaToolStripMenuItem";
+            this.historijaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.historijaToolStripMenuItem.Text = "Historija";
+            this.historijaToolStripMenuItem.Click += new System.EventHandler(this.historijaToolStripMenuItem_Click);
+            // 
+            // turniriToolStripMenuItem
+            // 
+            this.turniriToolStripMenuItem.Checked = true;
+            this.turniriToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.turniriToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aktivniToolStripMenuItem1,
+            this.historijaToolStripMenuItem1});
+            this.turniriToolStripMenuItem.Name = "turniriToolStripMenuItem";
+            this.turniriToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.turniriToolStripMenuItem.Text = "Turniri";
             // 
             // korisniciToolStripMenuItem
             // 
@@ -92,14 +123,19 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // turniriToolStripMenuItem
+            // aktivniToolStripMenuItem1
             // 
-            this.turniriToolStripMenuItem.Checked = true;
-            this.turniriToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.turniriToolStripMenuItem.Name = "turniriToolStripMenuItem";
-            this.turniriToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.turniriToolStripMenuItem.Text = "Turniri";
-            this.turniriToolStripMenuItem.Click += new System.EventHandler(this.turniriToolStripMenuItem_Click);
+            this.aktivniToolStripMenuItem1.Name = "aktivniToolStripMenuItem1";
+            this.aktivniToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.aktivniToolStripMenuItem1.Text = "Aktivni";
+            this.aktivniToolStripMenuItem1.Click += new System.EventHandler(this.aktivniToolStripMenuItem1_Click);
+            // 
+            // historijaToolStripMenuItem1
+            // 
+            this.historijaToolStripMenuItem1.Name = "historijaToolStripMenuItem1";
+            this.historijaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.historijaToolStripMenuItem1.Text = "Historija";
+            this.historijaToolStripMenuItem1.Click += new System.EventHandler(this.historijaToolStripMenuItem1_Click);
             // 
             // frmPocetna
             // 
@@ -132,6 +168,10 @@
         private System.Windows.Forms.ToolStripMenuItem korisniciToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem terminiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem turniriToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aktivniToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem historijaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aktivniToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem historijaToolStripMenuItem1;
     }
 }
 

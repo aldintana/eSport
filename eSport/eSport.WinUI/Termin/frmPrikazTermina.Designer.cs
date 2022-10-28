@@ -34,7 +34,7 @@ namespace eSport.WinUI
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbTereni = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbTermini = new System.Windows.Forms.GroupBox();
             this.dgvTermini = new System.Windows.Forms.DataGridView();
             this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pocetak = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,7 +42,7 @@ namespace eSport.WinUI
             this.TerenNaziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UkupnaCijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbTermini.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,15 +96,15 @@ namespace eSport.WinUI
             this.cmbTereni.Size = new System.Drawing.Size(190, 21);
             this.cmbTereni.TabIndex = 0;
             // 
-            // groupBox2
+            // gbTermini
             // 
-            this.groupBox2.Controls.Add(this.dgvTermini);
-            this.groupBox2.Location = new System.Drawing.Point(12, 82);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(776, 356);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Nadolazeći termini";
+            this.gbTermini.Controls.Add(this.dgvTermini);
+            this.gbTermini.Location = new System.Drawing.Point(12, 82);
+            this.gbTermini.Name = "gbTermini";
+            this.gbTermini.Size = new System.Drawing.Size(776, 356);
+            this.gbTermini.TabIndex = 1;
+            this.gbTermini.TabStop = false;
+            this.gbTermini.Text = "Termini";
             // 
             // dgvTermini
             // 
@@ -170,14 +170,14 @@ namespace eSport.WinUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gbTermini);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmPrikazTermina";
             this.Text = "Prikaz termina";
             this.Load += new System.EventHandler(this.frmPrikazTermina_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
+            this.gbTermini.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).EndInit();
             this.ResumeLayout(false);
 
@@ -186,7 +186,7 @@ namespace eSport.WinUI
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbTermini;
         private System.Windows.Forms.DataGridView dgvTermini;
         private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pocetak;

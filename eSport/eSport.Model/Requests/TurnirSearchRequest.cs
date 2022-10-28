@@ -11,5 +11,7 @@ namespace eSport.Model
         public DateTime? DatumKraja { get; set; }
         public bool? IsPotvrdjen { get; set; }
         public bool? IsGenerisan { get; set; }
+        public DateTime? DoDatuma { get; set; }
+        public DateTime? OdDatuma { get; set; }
     }
 }

@@ -10,10 +10,16 @@ namespace eSport.WinUI
     {
         APIService _terenService = new APIService(NazivEntiteta.Teren);
         APIService _turnirService = new APIService(NazivEntiteta.Turnir);
-        public frmPrikazTurnira()
+        bool _aktivni;
+        public frmPrikazTurnira(bool aktivni = true)
         {
             InitializeComponent();
             dgvTurniri.AutoGenerateColumns = false;
+            _aktivni = aktivni;
+            if (aktivni)
+                gbTurniri.Text = "Aktivni turniri";
+            else
+                gbTurniri.Text = "Historija turnira";
         }
         private async Task LoadTerene()
         {
@@ -33,7 +39,10 @@ namespace eSport.WinUI
                 {
                     IncludeList = new string[] { NazivEntiteta.Teren }
                 };
-
+                if (_aktivni)
+                    searchRequest.OdDatuma = DateTime.Now;
+                else
+                    searchRequest.DoDatuma = DateTime.Now;
                 dgvTurniri.DataSource = await _turnirService.Get<List<Model.Turnir>>(searchRequest);
             }
             catch (Exception)
