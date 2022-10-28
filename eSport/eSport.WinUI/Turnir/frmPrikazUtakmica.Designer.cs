@@ -73,6 +73,7 @@
             this.dgvUtakmice.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUtakmice.Size = new System.Drawing.Size(776, 298);
             this.dgvUtakmice.TabIndex = 3;
+            this.dgvUtakmice.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUtakmice_CellClick);
             // 
             // Domacin
             // 

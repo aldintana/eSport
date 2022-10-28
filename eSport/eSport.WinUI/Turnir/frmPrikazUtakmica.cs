@@ -39,5 +39,16 @@ namespace eSport.WinUI
                 MessageBox.Show(Properties.Resources.Greška);
             }
         }
+
+        private void dgvUtakmice_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var utakmica = dgvUtakmice.SelectedRows[0].DataBoundItem as Utakmica;
+            frmDetaljiUtakmice frmDetaljiUtakmice = new frmDetaljiUtakmice(utakmica);
+            if(frmDetaljiUtakmice.ShowDialog()==DialogResult.OK)
+            {
+                dgvUtakmice.DataSource = null;
+                frmPrikazUtakmica_Load(sender, e);
+            }
+        }
     }
 }

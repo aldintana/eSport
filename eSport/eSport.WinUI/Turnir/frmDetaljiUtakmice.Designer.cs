@@ -29,29 +29,21 @@ namespace eSport.WinUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.cmbDomacin = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpDatum = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.numericSatna = new System.Windows.Forms.NumericUpDown();
+            this.nmDomacin = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericSatna)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.nmGost = new System.Windows.Forms.NumericUpDown();
+            this.btnSacuvaj = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.txtDomacin = new System.Windows.Forms.TextBox();
+            this.txtGost = new System.Windows.Forms.TextBox();
+            this.cbIsZavrsena = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.nmDomacin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmGost)).BeginInit();
             this.SuspendLayout();
-            // 
-            // cmbDomacin
-            // 
-            this.cmbDomacin.FormattingEnabled = true;
-            this.cmbDomacin.Location = new System.Drawing.Point(10, 72);
-            this.cmbDomacin.Name = "cmbDomacin";
-            this.cmbDomacin.Size = new System.Drawing.Size(163, 21);
-            this.cmbDomacin.TabIndex = 0;
             // 
             // label1
             // 
@@ -71,20 +63,12 @@ namespace eSport.WinUI
             this.label2.TabIndex = 3;
             this.label2.Text = "Gost:";
             // 
-            // comboBox1
+            // dtpDatum
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(190, 72);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(163, 21);
-            this.comboBox1.TabIndex = 2;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(10, 30);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 4;
+            this.dtpDatum.Location = new System.Drawing.Point(10, 30);
+            this.dtpDatum.Name = "dtpDatum";
+            this.dtpDatum.Size = new System.Drawing.Size(342, 20);
+            this.dtpDatum.TabIndex = 4;
             // 
             // label3
             // 
@@ -95,17 +79,17 @@ namespace eSport.WinUI
             this.label3.TabIndex = 5;
             this.label3.Text = "Datum:";
             // 
-            // numericSatna
+            // nmDomacin
             // 
-            this.numericSatna.Location = new System.Drawing.Point(10, 115);
-            this.numericSatna.Maximum = new decimal(new int[] {
+            this.nmDomacin.Location = new System.Drawing.Point(10, 115);
+            this.nmDomacin.Maximum = new decimal(new int[] {
             300,
             0,
             0,
             0});
-            this.numericSatna.Name = "numericSatna";
-            this.numericSatna.Size = new System.Drawing.Size(163, 20);
-            this.numericSatna.TabIndex = 11;
+            this.nmDomacin.Name = "nmDomacin";
+            this.nmDomacin.Size = new System.Drawing.Size(163, 20);
+            this.nmDomacin.TabIndex = 11;
             // 
             // label4
             // 
@@ -113,87 +97,94 @@ namespace eSport.WinUI
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(155, 96);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 16);
+            this.label4.Size = new System.Drawing.Size(55, 16);
             this.label4.TabIndex = 10;
             this.label4.Text = "Rezultat";
             // 
-            // numericUpDown1
+            // nmGost
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(190, 115);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.nmGost.Location = new System.Drawing.Point(190, 115);
+            this.nmGost.Maximum = new decimal(new int[] {
             300,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(163, 20);
-            this.numericUpDown1.TabIndex = 13;
+            this.nmGost.Name = "nmGost";
+            this.nmGost.Size = new System.Drawing.Size(163, 20);
+            this.nmGost.TabIndex = 13;
             // 
-            // comboBox2
+            // btnSacuvaj
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(217, 30);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(136, 21);
-            this.comboBox2.TabIndex = 14;
+            this.btnSacuvaj.Location = new System.Drawing.Point(277, 154);
+            this.btnSacuvaj.Name = "btnSacuvaj";
+            this.btnSacuvaj.Size = new System.Drawing.Size(75, 23);
+            this.btnSacuvaj.TabIndex = 16;
+            this.btnSacuvaj.Text = "Sačuvaj";
+            this.btnSacuvaj.UseVisualStyleBackColor = true;
+            this.btnSacuvaj.Click += new System.EventHandler(this.btnSacuvaj_Click);
             // 
-            // label5
+            // txtDomacin
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(214, 14);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 13);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Vrijeme:";
+            this.txtDomacin.Location = new System.Drawing.Point(10, 73);
+            this.txtDomacin.Name = "txtDomacin";
+            this.txtDomacin.Size = new System.Drawing.Size(163, 20);
+            this.txtDomacin.TabIndex = 17;
             // 
-            // button1
+            // txtGost
             // 
-            this.button1.Location = new System.Drawing.Point(277, 154);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Sačuvaj";
-            this.button1.UseVisualStyleBackColor = true;
+            this.txtGost.Location = new System.Drawing.Point(189, 73);
+            this.txtGost.Name = "txtGost";
+            this.txtGost.Size = new System.Drawing.Size(163, 20);
+            this.txtGost.TabIndex = 18;
+            // 
+            // cbIsZavrsena
+            // 
+            this.cbIsZavrsena.AutoSize = true;
+            this.cbIsZavrsena.Location = new System.Drawing.Point(193, 158);
+            this.cbIsZavrsena.Name = "cbIsZavrsena";
+            this.cbIsZavrsena.Size = new System.Drawing.Size(71, 17);
+            this.cbIsZavrsena.TabIndex = 19;
+            this.cbIsZavrsena.Text = "Završena";
+            this.cbIsZavrsena.UseVisualStyleBackColor = true;
             // 
             // frmDetaljiUtakmice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(365, 190);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.numericSatna);
+            this.Controls.Add(this.cbIsZavrsena);
+            this.Controls.Add(this.txtGost);
+            this.Controls.Add(this.txtDomacin);
+            this.Controls.Add(this.btnSacuvaj);
+            this.Controls.Add(this.nmGost);
+            this.Controls.Add(this.nmDomacin);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpDatum);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmbDomacin);
             this.Name = "frmDetaljiUtakmice";
             this.Text = "Nova utakmica";
-            ((System.ComponentModel.ISupportInitialize)(this.numericSatna)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.Load += new System.EventHandler(this.frmDetaljiUtakmice_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.nmDomacin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmGost)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cmbDomacin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpDatum;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericSatna;
+        private System.Windows.Forms.NumericUpDown nmDomacin;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.NumericUpDown nmGost;
+        private System.Windows.Forms.Button btnSacuvaj;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.TextBox txtDomacin;
+        private System.Windows.Forms.TextBox txtGost;
+        private System.Windows.Forms.CheckBox cbIsZavrsena;
     }
 }
