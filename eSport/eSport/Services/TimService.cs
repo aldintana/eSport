@@ -17,7 +17,9 @@ namespace eSport.Services
         {
             var entity = _context.Set<Database.Tim>().AsQueryable();
 
-            if(!string.IsNullOrWhiteSpace(search.TekstPretraga))
+            entity = entity.Where(e => e.IsDeleted == search.IsDeleted);
+
+            if (!string.IsNullOrWhiteSpace(search.TekstPretraga))
             {
                 entity = entity.Where(x => x.Naziv.Contains(search.TekstPretraga));
             }

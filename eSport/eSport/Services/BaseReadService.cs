@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
-using eSport.Database;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using eSport.Database;
+using System.Collections.Generic;
 
 namespace eSport.Services
 {

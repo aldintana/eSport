@@ -29,7 +29,9 @@ namespace eSport.WinUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnIzvjestaj = new System.Windows.Forms.Button();
             this.btnNoviTermin = new System.Windows.Forms.Button();
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,7 +43,7 @@ namespace eSport.WinUI
             this.Kraj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TerenNaziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UkupnaCijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnIzvjestaj = new System.Windows.Forms.Button();
+            this.Akcija = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             this.gbTermini.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).BeginInit();
@@ -60,6 +62,16 @@ namespace eSport.WinUI
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pretraga termina";
+            // 
+            // btnIzvjestaj
+            // 
+            this.btnIzvjestaj.Location = new System.Drawing.Point(689, 34);
+            this.btnIzvjestaj.Name = "btnIzvjestaj";
+            this.btnIzvjestaj.Size = new System.Drawing.Size(75, 23);
+            this.btnIzvjestaj.TabIndex = 4;
+            this.btnIzvjestaj.Text = "Izvještaj";
+            this.btnIzvjestaj.UseVisualStyleBackColor = true;
+            this.btnIzvjestaj.Click += new System.EventHandler(this.btnIzvjestaj_Click);
             // 
             // btnNoviTermin
             // 
@@ -118,7 +130,8 @@ namespace eSport.WinUI
             this.Pocetak,
             this.Kraj,
             this.TerenNaziv,
-            this.UkupnaCijena});
+            this.UkupnaCijena,
+            this.Akcija});
             this.dgvTermini.Location = new System.Drawing.Point(7, 20);
             this.dgvTermini.Name = "dgvTermini";
             this.dgvTermini.ReadOnly = true;
@@ -167,15 +180,17 @@ namespace eSport.WinUI
             this.UkupnaCijena.Name = "UkupnaCijena";
             this.UkupnaCijena.ReadOnly = true;
             // 
-            // btnIzvjestaj
+            // Akcija
             // 
-            this.btnIzvjestaj.Location = new System.Drawing.Point(689, 34);
-            this.btnIzvjestaj.Name = "btnIzvjestaj";
-            this.btnIzvjestaj.Size = new System.Drawing.Size(75, 23);
-            this.btnIzvjestaj.TabIndex = 4;
-            this.btnIzvjestaj.Text = "Izvještaj";
-            this.btnIzvjestaj.UseVisualStyleBackColor = true;
-            this.btnIzvjestaj.Click += new System.EventHandler(this.btnIzvjestaj_Click);
+            this.Akcija.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Akcija.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Akcija.HeaderText = "Akcija";
+            this.Akcija.Name = "Akcija";
+            this.Akcija.ReadOnly = true;
+            this.Akcija.Text = "Obriši";
+            this.Akcija.UseColumnTextForButtonValue = true;
             // 
             // frmPrikazTermina
             // 
@@ -200,15 +215,16 @@ namespace eSport.WinUI
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox gbTermini;
         private System.Windows.Forms.DataGridView dgvTermini;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pocetak;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Kraj;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TerenNaziv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UkupnaCijena;
         private System.Windows.Forms.ComboBox cmbTereni;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnPrikazi;
         private System.Windows.Forms.Button btnNoviTermin;
         private System.Windows.Forms.Button btnIzvjestaj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pocetak;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Kraj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TerenNaziv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UkupnaCijena;
+        private System.Windows.Forms.DataGridViewButtonColumn Akcija;
     }
 }

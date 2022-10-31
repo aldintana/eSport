@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
-using eSport.Database;
-using eSport.Model;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using eSport.Model;
+using eSport.Database;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace eSport.Services
 {
@@ -19,6 +17,7 @@ namespace eSport.Services
         {
             var entity = _context.Set<Database.Cjenovnik>().AsQueryable();
 
+            entity = entity.Where(e => e.IsDeleted == search.IsDeleted);
 
             if (search.TerenId.HasValue)
             {

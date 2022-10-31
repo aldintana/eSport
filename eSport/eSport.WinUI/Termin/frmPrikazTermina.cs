@@ -85,12 +85,21 @@ namespace eSport.WinUI
             }
         }
 
-        private void dgvTermini_CellClick(object sender, DataGridViewCellEventArgs e)
+        private async void dgvTermini_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var termin = dgvTermini.SelectedRows[0].DataBoundItem as Termin;
-            frmDetaljiTermina frmDetaljiTermina = new frmDetaljiTermina(termin);
-            if (frmDetaljiTermina.ShowDialog() == DialogResult.OK)
+            if(e.ColumnIndex != 5)
             {
+                frmDetaljiTermina frmDetaljiTermina = new frmDetaljiTermina(termin);
+                if (frmDetaljiTermina.ShowDialog() == DialogResult.OK)
+                {
+                    dgvTermini.DataSource = null;
+                    frmPrikazTermina_Load(sender, e);
+                }
+            }
+            else
+            {
+                await _terminService.Delete<Model.Termin>(termin.Id);
                 dgvTermini.DataSource = null;
                 frmPrikazTermina_Load(sender, e);
             }

@@ -47,7 +47,7 @@ namespace eSport.WinUI
             }
             catch (FlurlHttpException ex)
             {
-                //GenerateMessage(ex);
+                GenerateMessage(ex);
                 return default(T);
             }
         }
@@ -61,7 +61,21 @@ namespace eSport.WinUI
             }
             catch (FlurlHttpException ex)
             {
-                //GenerateMessage(ex);
+                GenerateMessage(ex);
+                return default(T);
+            }
+        }
+
+        public async Task<T> Delete<T>(object id)
+        {
+            var url = $"{Properties.Settings.Default.ApiURL}/{_route}/{id}";
+            try
+            {
+                return await url.WithBasicAuth(KorisnickoIme, Lozinka).DeleteAsync().ReceiveJson<T>();
+            }
+            catch (FlurlHttpException ex)
+            {
+                GenerateMessage(ex);
                 return default(T);
             }
         }

@@ -18,8 +18,10 @@ namespace eSport.Services
         public override IEnumerable<Model.Teren> Get(TerenSearchRequest search = null)
         {
             var entity = _context.Set<Database.Teren>().AsQueryable();
+            
+            entity = entity.Where(e => e.IsDeleted == search.IsDeleted);
 
-            if(!string.IsNullOrWhiteSpace(search.TekstPretraga))
+            if (!string.IsNullOrWhiteSpace(search.TekstPretraga))
             {
                 entity = entity.Where(x => x.Naziv.Contains(search.TekstPretraga));
             }

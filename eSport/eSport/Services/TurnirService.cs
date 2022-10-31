@@ -59,6 +59,8 @@ namespace eSport.Services
         {
             var entity = _context.Set<Database.Turnir>().AsQueryable();
 
+            entity = entity.Where(e => e.IsDeleted == search.IsDeleted);
+
             if (search.CjenovnikId.HasValue)
             {
                 entity = entity.Where(x => x.CjenovnikId == search.CjenovnikId);

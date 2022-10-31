@@ -22,7 +22,9 @@ namespace eSport.Services
         {
             var entity = _context.Set<Database.Korisnik>().AsQueryable();
 
-            if(!string.IsNullOrWhiteSpace(search.TekstPretraga))
+            entity = entity.Where(e => e.IsDeleted == search.IsDeleted);
+
+            if (!string.IsNullOrWhiteSpace(search.TekstPretraga))
             {
                 entity = entity.Where(x => x.Ime.Contains(search.TekstPretraga)
                  || x.Prezime.Contains(search.TekstPretraga)
