@@ -41,6 +41,7 @@ namespace eSport.WinUI
             this.Kraj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TerenNaziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UkupnaCijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnIzvjestaj = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbTermini.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).BeginInit();
@@ -48,6 +49,7 @@ namespace eSport.WinUI
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnIzvjestaj);
             this.groupBox1.Controls.Add(this.btnNoviTermin);
             this.groupBox1.Controls.Add(this.btnPrikazi);
             this.groupBox1.Controls.Add(this.label1);
@@ -61,7 +63,7 @@ namespace eSport.WinUI
             // 
             // btnNoviTermin
             // 
-            this.btnNoviTermin.Location = new System.Drawing.Point(695, 34);
+            this.btnNoviTermin.Location = new System.Drawing.Point(608, 34);
             this.btnNoviTermin.Name = "btnNoviTermin";
             this.btnNoviTermin.Size = new System.Drawing.Size(75, 23);
             this.btnNoviTermin.TabIndex = 3;
@@ -71,7 +73,7 @@ namespace eSport.WinUI
             // 
             // btnPrikazi
             // 
-            this.btnPrikazi.Location = new System.Drawing.Point(614, 34);
+            this.btnPrikazi.Location = new System.Drawing.Point(527, 34);
             this.btnPrikazi.Name = "btnPrikazi";
             this.btnPrikazi.Size = new System.Drawing.Size(75, 23);
             this.btnPrikazi.TabIndex = 2;
@@ -165,6 +167,16 @@ namespace eSport.WinUI
             this.UkupnaCijena.Name = "UkupnaCijena";
             this.UkupnaCijena.ReadOnly = true;
             // 
+            // btnIzvjestaj
+            // 
+            this.btnIzvjestaj.Location = new System.Drawing.Point(689, 34);
+            this.btnIzvjestaj.Name = "btnIzvjestaj";
+            this.btnIzvjestaj.Size = new System.Drawing.Size(75, 23);
+            this.btnIzvjestaj.TabIndex = 4;
+            this.btnIzvjestaj.Text = "Izvještaj";
+            this.btnIzvjestaj.UseVisualStyleBackColor = true;
+            this.btnIzvjestaj.Click += new System.EventHandler(this.btnIzvjestaj_Click);
+            // 
             // frmPrikazTermina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,5 +209,6 @@ namespace eSport.WinUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnPrikazi;
         private System.Windows.Forms.Button btnNoviTermin;
+        private System.Windows.Forms.Button btnIzvjestaj;
     }
 }
