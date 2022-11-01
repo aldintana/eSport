@@ -11,9 +11,12 @@ namespace eSport.WinUI
         APIService _sportService = new APIService(NazivEntiteta.Sport);
         APIService _terenService = new APIService(NazivEntiteta.Teren);
         APIService _terminService = new APIService(NazivEntiteta.Termin);
-        public frmOdabirIzvjestaja()
+        APIService _turnirService = new APIService(NazivEntiteta.Turnir);
+        bool _isTermin = false;
+        public frmOdabirIzvjestaja(bool isTermin)
         {
             InitializeComponent();
+            _isTermin = isTermin;
         }
 
         private async void frmOdabirIzvjestaja_Load(object sender, System.EventArgs e)
@@ -60,40 +63,81 @@ namespace eSport.WinUI
         {
             var teren = cmbTeren.SelectedItem as Teren;
             var sport = cmbSport.SelectedItem as Sport;
-            var terminSearchRequest = new TerminSearchRequest
+            if(_isTermin)
             {
-                TerenId = teren?.Id,
-                SportId = sport?.Id,
-                OdDatuma = dtpOdDatuma.Value,
-                DoDatuma = dtpDoDatuma.Value,
-                IncludeList = new string[] {NazivEntiteta.Teren}
-            };
-            if (terminSearchRequest?.SportId == 0)
-                terminSearchRequest.SportId = null;
-            var termini = await _terminService.Get<List<Model.Termin>>(terminSearchRequest);
-            if(termini != null)
-            {
-                if(termini.Count == 0)
+                var terminSearchRequest = new TerminSearchRequest
                 {
-                    MessageBox.Show("Nema podataka");
-                    return;
+                    TerenId = teren?.Id,
+                    SportId = sport?.Id,
+                    OdDatuma = dtpOdDatuma.Value,
+                    DoDatuma = dtpDoDatuma.Value,
+                    IncludeList = new string[] { NazivEntiteta.Teren }
+                };
+                if (terminSearchRequest?.SportId == 0)
+                    terminSearchRequest.SportId = null;
+                var termini = await _terminService.Get<List<Model.Termin>>(terminSearchRequest);
+                if (termini != null)
+                {
+                    if (termini.Count == 0)
+                    {
+                        MessageBox.Show("Nema podataka");
+                        return;
+                    }
+                    var pocetak = dtpOdDatuma.Value.Date.ToString("dd.MM.yyyy.");
+                    var kraj = dtpDoDatuma.Value.Date.ToString("dd.MM.yyyy.");
+                    var rasponDatuma = $"Vremenski period: {pocetak} - {kraj}";
+                    var terenNaziv = "Svi";
+                    var sportNaziv = "Svi";
+                    if (teren != null)
+                        terenNaziv = teren.Naziv;
+                    if (sport != null && sport.Id != 0)
+                        sportNaziv = sport.Naziv;
+                    frmIzvjestajTermina frmIzvjestajTermina = new frmIzvjestajTermina(termini, rasponDatuma, terenNaziv, sportNaziv);
+                    frmIzvjestajTermina.Show();
                 }
-                var pocetak = dtpOdDatuma.Value.Date.ToString("dd.MM.yyyy.");
-                var kraj = dtpDoDatuma.Value.Date.ToString("dd.MM.yyyy.");
-                var rasponDatuma = $"Vremenski period: {pocetak} - {kraj}";
-                var terenNaziv = "Svi";
-                var sportNaziv = "Svi";
-                if (teren != null)
-                    terenNaziv = teren.Naziv;
-                if (sport != null && sport.Id != 0)
-                    sportNaziv = sport.Naziv;
-                frmIzvjestajTermina frmIzvjestajTermina = new frmIzvjestajTermina(termini, rasponDatuma, terenNaziv, sportNaziv);
-                frmIzvjestajTermina.Show();
+                else
+                {
+                    MessageBox.Show(Resources.Greška);
+                }
             }
             else
             {
-                MessageBox.Show(Resources.Greška);
+                var turnirSearchRequest = new TurnirSearchRequest
+                {
+                    TerenId = teren?.Id,
+                    SportId = sport?.Id,
+                    OdDatuma = dtpOdDatuma.Value,
+                    DoDatuma = dtpDoDatuma.Value,
+                    IncludeList = new string[] { NazivEntiteta.Teren }
+                };
+                if (turnirSearchRequest?.SportId == 0)
+                    turnirSearchRequest.SportId = null;
+                var turniri = await _turnirService.Get<List<Model.Turnir>>(turnirSearchRequest);
+                if (turniri != null)
+                {
+                    if (turniri.Count == 0)
+                    {
+                        MessageBox.Show("Nema podataka");
+                        return;
+                    }
+                    var pocetak = dtpOdDatuma.Value.Date.ToString("dd.MM.yyyy.");
+                    var kraj = dtpDoDatuma.Value.Date.ToString("dd.MM.yyyy.");
+                    var rasponDatuma = $"Vremenski period: {pocetak} - {kraj}";
+                    var terenNaziv = "Svi";
+                    var sportNaziv = "Svi";
+                    if (teren != null)
+                        terenNaziv = teren.Naziv;
+                    if (sport != null && sport.Id != 0)
+                        sportNaziv = sport.Naziv;
+                    frmIzvjestajTurnira frmIzvjestajTurnira = new frmIzvjestajTurnira(turniri, rasponDatuma, terenNaziv, sportNaziv);
+                    frmIzvjestajTurnira.Show();
+                }
+                else
+                {
+                    MessageBox.Show(Resources.Greška);
+                }
             }
+            
         }
     }
 }

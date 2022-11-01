@@ -154,6 +154,14 @@
     <Compile Include="Termin\frmPrikazTermina.Designer.cs">
       <DependentUpon>frmPrikazTermina.cs</DependentUpon>
     </Compile>
+    <Compile Include="Turnir\DsTurniri.cs">
+      <DependentUpon>DsTurniri.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Turnir\DsTurniri.Designer.cs">
+      <DependentUpon>DsTurniri.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Turnir\frmDetaljiTima.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +179,12 @@
     </Compile>
     <Compile Include="Turnir\frmDetaljiUtakmice.Designer.cs">
       <DependentUpon>frmDetaljiUtakmice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Turnir\frmIzvjestajTurnira.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Turnir\frmIzvjestajTurnira.Designer.cs">
+      <DependentUpon>frmIzvjestajTurnira.cs</DependentUpon>
     </Compile>
     <Compile Include="Turnir\frmPrikazTurnira.cs">
       <SubType>Form</SubType>
@@ -229,6 +243,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Termin\frmPrikazTermina.resx">
       <DependentUpon>frmPrikazTermina.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Termin\rptTermini.rdlc" />
     <EmbeddedResource Include="Turnir\frmDetaljiTima.resx">
@@ -240,6 +255,9 @@
     <EmbeddedResource Include="Turnir\frmDetaljiUtakmice.resx">
       <DependentUpon>frmDetaljiUtakmice.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Turnir\frmIzvjestajTurnira.resx">
+      <DependentUpon>frmIzvjestajTurnira.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Turnir\frmPrikazTurnira.resx">
       <DependentUpon>frmPrikazTurnira.cs</DependentUpon>
     </EmbeddedResource>
@@ -249,6 +267,7 @@
     <EmbeddedResource Include="Turnir\frmTabelaTurnira.resx">
       <DependentUpon>frmTabelaTurnira.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Turnir\rptTurniri.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\eSport.Model.Termin.datasource" />
     <None Include="Properties\DataSources\eSport.WinUI.Termin.DsTermini.datasource" />
@@ -271,6 +290,17 @@
     </None>
     <None Include="Termin\DsTermini.xss">
       <DependentUpon>DsTermini.xsd</DependentUpon>
+    </None>
+    <None Include="Turnir\DsTurniri.xsc">
+      <DependentUpon>DsTurniri.xsd</DependentUpon>
+    </None>
+    <None Include="Turnir\DsTurniri.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsTurniri.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Turnir\DsTurniri.xss">
+      <DependentUpon>DsTurniri.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -107,7 +107,7 @@ namespace eSport.WinUI
 
         private void btnIzvjestaj_Click(object sender, EventArgs e)
         {
-            frmOdabirIzvjestaja frmOdabirIzvjestaja = new frmOdabirIzvjestaja();
+            frmOdabirIzvjestaja frmOdabirIzvjestaja = new frmOdabirIzvjestaja(true);
             if (frmOdabirIzvjestaja.ShowDialog() == DialogResult.OK)
             {
                 dgvTermini.DataSource = null;

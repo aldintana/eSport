@@ -69,6 +69,10 @@ namespace eSport.Services
             {
                 entity = entity.Where(x => x.TerenId == search.TerenId);
             }
+            if (search.SportId.HasValue)
+            {
+                entity = entity.Where(x => x.Teren.SportId == search.SportId);
+            }
             if (search.KorisnikId.HasValue)
             {
                 entity = entity.Where(x => x.KorisnikId == search.KorisnikId);
@@ -80,12 +84,12 @@ namespace eSport.Services
 
             if (search.OdDatuma.HasValue)
             {
-                entity = entity.Where(x => x.DatumKraja > search.OdDatuma);
+                entity = entity.Where(x => x.DatumKraja >= search.OdDatuma);
             }
 
             if (search.DoDatuma.HasValue)
             {
-                entity = entity.Where(x => x.DatumKraja < search.DoDatuma);
+                entity = entity.Where(x => x.DatumKraja <= search.DoDatuma);
             }
 
             if (search?.IncludeList?.Length > 0)

@@ -1,14 +1,14 @@
-﻿using AutoMapper;
-using eSport.Database;
-using eSport.Filters;
-using eSport.Model;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using AutoMapper;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
+using eSport.Model;
+using eSport.Filters;
+using eSport.Database;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Security.Cryptography;
+using Microsoft.EntityFrameworkCore;
 
 namespace eSport.Services
 {

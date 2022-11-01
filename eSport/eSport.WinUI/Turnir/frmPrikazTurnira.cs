@@ -93,5 +93,15 @@ namespace eSport.WinUI
                 frmPrikazTurnira_Load(sender, e);
             }
         }
+
+        private void btnIzvjestaj_Click(object sender, EventArgs e)
+        {
+            frmOdabirIzvjestaja frmOdabirIzvjestaja = new frmOdabirIzvjestaja(false);
+            if (frmOdabirIzvjestaja.ShowDialog() == DialogResult.OK)
+            {
+                dgvTurniri.DataSource = null;
+                frmPrikazTurnira_Load(sender, e);
+            }
+        }
     }
 }
