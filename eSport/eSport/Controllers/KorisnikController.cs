@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eSport.Controllers
 {
+    [Authorize]
     public class KorisnikController : BaseCRUDController<Model.Korisnik, Model.BaseSearchRequest, Model.KorisnikInsertRequest, Model.KorisnikInsertRequest>
     {
         public KorisnikController(IKorisnikService service) :base(service)

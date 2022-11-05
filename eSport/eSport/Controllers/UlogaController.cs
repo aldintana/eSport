@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using eSport.Model;
+﻿using eSport.Model;
 using eSport.Services;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace eSport.Controllers
 {
+    [Authorize]
     public class UlogaController : BaseReadController<Uloga, object>
     {
         public UlogaController(IUlogaService service) : base(service)

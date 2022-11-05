@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using eSport.Model;
+﻿using eSport.Model;
 using eSport.Services;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace eSport.Controllers
 {
+    [Authorize]
     public class TerenController : BaseCRUDController<Model.Teren, TerenSearchRequest, TerenInsertRequest, TerenInsertRequest>
     {
         public TerenController(ITerenService terenService) : base(terenService)
