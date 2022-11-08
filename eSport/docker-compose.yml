@@ -1,0 +1,33 @@
+version: '3'
+services:
+#mssql docker
+  esport-sql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=eSport123
+      - MSSQL_PID=Developer
+    ports:
+      - 1435:1433
+    networks:
+      - esportnet
+
+  esport-api:
+    restart: unless-stopped
+    build:
+      context: .
+    environment:
+      - ConnectionStrings:DefaultConnection=Server=esport-sql,1433;Database=eSportDocker;User=sa;Password=eSport123;ConnectRetryCount=0
+    ports:
+      - 44366:44366
+    networks:
+      - esportnet      
+    links:
+      - esport-sql
+    depends_on:
+      - esport-sql
+      
+networks:
+  esportnet:
+    driver: bridge 
