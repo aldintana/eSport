@@ -15,6 +15,29 @@ namespace eSport.Services
 
         }
 
+        public override Model.Turnir Insert(TurnirInsertRequest request)
+        {
+            //if (IsZauzet(request))
+            //    return null;
+            var entity = _mapper.Map<Database.Termin>(request);
+            if (request.KorisnikId != null)
+            {
+                var korisnik = _context.Korisniks.FirstOrDefault(k => k.Id == request.KorisnikId);
+                korisnik.Bodovi += 20;
+                if (request.IsPopust)
+                {
+                    korisnik.Bodovi -= 40;
+                }
+                _context.Korisniks.Update(korisnik);
+            }
+
+            entity.CreatedAt = DateTime.Now;
+            entity.IsDeleted = false;
+            _context.Add(entity);
+            _context.SaveChanges();
+            return base.Insert(request);
+        }
+
         public bool GenerisiTurnir(int id)
         {
             var turnir = _context.Turnirs.FirstOrDefault(t => t.Id == id);

@@ -59,7 +59,7 @@ namespace eSport.Services
 
             entity.LozinkaSalt = GenerateSalt();
             entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, request.Lozinka);
-
+            entity.Bodovi = 0;
             _context.SaveChanges();
 
             foreach (var role in request.Ulogas)

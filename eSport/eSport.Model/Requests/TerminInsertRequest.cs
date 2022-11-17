@@ -9,6 +9,7 @@ namespace eSport.Model
         public int? KorisnikId { get; set; }
         public int UkupnaCijena { get; set; }
         public bool IsPotvrdjen { get; set; }
+        public bool IsPopust { get; set; }
         public DateTime Datum { get; set; }
         public DateTime Pocetak { get; set; }
         public DateTime Kraj { get; set; }

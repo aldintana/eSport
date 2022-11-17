@@ -78,6 +78,16 @@ namespace eSport.Services
             if (IsZauzet(request))
                 return null;
             var entity = _mapper.Map<Database.Termin>(request);
+            if (request.KorisnikId != null)
+            {
+                var korisnik = _context.Korisniks.FirstOrDefault(k=>k.Id == request.KorisnikId);
+                korisnik.Bodovi += 10;
+                if(request.IsPopust)
+                {
+                    korisnik.Bodovi -= 30;
+                }
+                _context.Korisniks.Update(korisnik);
+            }
             entity.CreatedAt = DateTime.Now;
             entity.IsDeleted = false;
             _context.Add(entity);

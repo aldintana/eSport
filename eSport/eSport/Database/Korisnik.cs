@@ -16,5 +16,6 @@ namespace eSport.Database
         public string LozinkaHash { get; set; }
         public string LozinkaSalt { get; set; }
         public virtual ICollection<KorisnikUloga> KorisnikUlogas { get; set; }
+        public int Bodovi { get; set; }
     }
 }

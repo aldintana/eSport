@@ -13,5 +13,6 @@ namespace eSport.Model
         public string BrojTelefona { get; set; }
         public string KorisnickoIme { get; set; }
         public virtual ICollection<KorisnikUloga> KorisnikUlogas { get; set; }
+        public int Bodovi { get; set; }
     }
 }
