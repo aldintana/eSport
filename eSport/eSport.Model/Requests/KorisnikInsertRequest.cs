@@ -21,6 +21,7 @@ namespace eSport.Model
         public string Lozinka { get; set; }
         [Compare("Lozinka")]
         public string LozinkaProvjera { get; set; }
+        public bool UpdateUloga { get; set; }
         public List<int> Ulogas { get; set; } = new List<int>();
     }
 }

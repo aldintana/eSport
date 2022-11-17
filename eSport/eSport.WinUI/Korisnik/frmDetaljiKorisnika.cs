@@ -84,7 +84,7 @@ namespace eSport.WinUI.Korisnik
                     request.Lozinka = txtLozinka.Text;
                     request.LozinkaProvjera = txtLozinkaProvjera.Text;
                     request.Ulogas = ulogaIds;
-
+                    request.UpdateUloga = true;
                     if (_korisnik == null)
                     {
                         var user = await _serviceKorisnici.Insert<Model.Korisnik>(request);

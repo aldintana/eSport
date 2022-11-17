@@ -9,5 +9,6 @@
         public int TipRezervacijeId { get; set; }
         public virtual TipRezervacije TipRezervacije { get; set; }
         public string Naziv => $"{TipRezervacije?.Naziv}: {Cijena} KM";
+        public bool IsDnevna => TipRezervacije?.IsDnevna ?? false;
     }
 }

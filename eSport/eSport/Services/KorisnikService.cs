@@ -95,23 +95,26 @@ namespace eSport.Services
                 entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, request.Lozinka);
             }
             _context.Korisniks.Update(entity);
-
-            var korisnikUlogaIdsToRemove = entity.KorisnikUlogas.Select(x => x.UlogaId).Except(request.Ulogas).ToList();
-            var korisnikUlogaToRemove = entity.KorisnikUlogas.Where(x => korisnikUlogaIdsToRemove.Any(y => y == x.UlogaId)).ToList();
-
-            var korisnikUlogaIdsToInsert = request.Ulogas.Except(entity.KorisnikUlogas.Select(x => x.UlogaId));
-            foreach (var uloga in korisnikUlogaIdsToInsert)
+            if(request.UpdateUloga)
             {
-                Database.KorisnikUloga korisnikUlogas = new Database.KorisnikUloga
-                {
-                    KorisnikId = entity.Id,
-                    UlogaId = uloga
-                };
+                var korisnikUlogaIdsToRemove = entity.KorisnikUlogas.Select(x => x.UlogaId).Except(request.Ulogas).ToList();
+                var korisnikUlogaToRemove = entity.KorisnikUlogas.Where(x => korisnikUlogaIdsToRemove.Any(y => y == x.UlogaId)).ToList();
 
-                _context.KorisnikUlogas.Add(korisnikUlogas);
+                var korisnikUlogaIdsToInsert = request.Ulogas.Except(entity.KorisnikUlogas.Select(x => x.UlogaId));
+                foreach (var uloga in korisnikUlogaIdsToInsert)
+                {
+                    Database.KorisnikUloga korisnikUlogas = new Database.KorisnikUloga
+                    {
+                        KorisnikId = entity.Id,
+                        UlogaId = uloga
+                    };
+
+                    _context.KorisnikUlogas.Add(korisnikUlogas);
+                }
+                _context.KorisnikUlogas.RemoveRange(korisnikUlogaToRemove);
             }
-            _context.KorisnikUlogas.RemoveRange(korisnikUlogaToRemove);
             _context.SaveChanges();
+            
             return _mapper.Map<Model.Korisnik>(entity);
         }
 
