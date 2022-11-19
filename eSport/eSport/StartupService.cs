@@ -99,7 +99,8 @@ namespace eSport
             {
                 context.Sports.Add(new Sport
                 {
-                    Naziv = "Fudbal"
+                    Naziv = "Fudbal",
+                    CreatedAt = DateTime.Now
                 });
                 context.SaveChanges();
             }
@@ -107,14 +108,16 @@ namespace eSport
             {
                 context.Sports.Add(new Sport
                 {
-                    Naziv = "Tenis"
+                    Naziv = "Tenis",
+                    CreatedAt = DateTime.Now
                 });
             }
             if (!context.Sports.Any(x => x.Naziv == "Kosarka"))
             {
                 context.Sports.Add(new Sport
                 {
-                    Naziv = "Kosarka"
+                    Naziv = "Kosarka",
+                    CreatedAt = DateTime.Now
                 });
             }
             context.SaveChanges();
@@ -191,6 +194,16 @@ namespace eSport
                 context.Terens.Add(new Teren
                 {
                     Naziv = "Kosarkaski teren 1",
+                    SportId = kosarkaId,
+                    CreatedAt = DateTime.Now,
+                    IsDeleted = false
+                });
+            }
+            if (!context.Terens.Any(x => x.Naziv == "Kosarkaski teren 1"))
+            {
+                context.Terens.Add(new Teren
+                {
+                    Naziv = "Kosarkaski teren 2",
                     SportId = kosarkaId,
                     CreatedAt = DateTime.Now,
                     IsDeleted = false
@@ -318,6 +331,7 @@ namespace eSport
                     IsPotvrdjen = true,
                     IsDeleted = false,
                     CreatedAt = DateTime.Now,
+                    KorisnikId = klijentKorisnikId
                 });
             }
             if (!context.Termins.Any(x => x.CjenovnikId == fudbalskiTeren1SatnaId && x.TerenId == fudbalskiTeren1Id
@@ -350,6 +364,7 @@ namespace eSport
                     IsPotvrdjen = true,
                     IsDeleted = false,
                     CreatedAt = DateTime.Now,
+                    KorisnikId = klijentKorisnikId
                 });
             }
             context.SaveChanges();
@@ -392,6 +407,7 @@ namespace eSport
                     UkupnaCijena = 400,
                     CreatedAt = DateTime.Now,
                     IsDeleted = false,
+                    KorisnikId = klijentKorisnikId
                 });
             }
             context.SaveChanges();
