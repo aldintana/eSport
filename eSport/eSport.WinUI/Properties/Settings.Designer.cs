@@ -25,7 +25,7 @@ namespace eSport.WinUI.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44366/api")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:44366/api")]
         public string ApiURL {
             get {
                 return ((string)(this["ApiURL"]));

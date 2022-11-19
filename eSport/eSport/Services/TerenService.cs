@@ -38,7 +38,7 @@ namespace eSport.Services
                 }
             }
             if (search.KorisnikId.HasValue)
-                return TerenRecommendedSystem(entity, search.KorisnikId.GetValueOrDefault());
+                return TerenRecommenderSystem(entity, search.KorisnikId.GetValueOrDefault());
 
             var list = entity.ToList();
 

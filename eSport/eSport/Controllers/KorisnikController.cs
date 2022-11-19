@@ -18,7 +18,6 @@ namespace eSport.Controllers
             return base.Insert(request);
         }
 
-        //[Authorize(Roles = "Admin")]
         public override Korisnik Update(int id, [FromBody] KorisnikInsertRequest request)
         {
             return base.Update(id, request);

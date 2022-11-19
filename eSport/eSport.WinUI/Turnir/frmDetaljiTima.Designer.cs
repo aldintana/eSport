@@ -34,7 +34,10 @@ namespace eSport.WinUI
             this.txtNaziv = new System.Windows.Forms.TextBox();
             this.btnSacuvaj = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dgvTimovi = new System.Windows.Forms.DataGridView();
+            this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTimovi)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -68,11 +71,29 @@ namespace eSport.WinUI
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // dgvTimovi
+            // 
+            this.dgvTimovi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTimovi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Naziv});
+            this.dgvTimovi.Location = new System.Drawing.Point(12, 120);
+            this.dgvTimovi.Name = "dgvTimovi";
+            this.dgvTimovi.Size = new System.Drawing.Size(342, 150);
+            this.dgvTimovi.TabIndex = 39;
+            // 
+            // Naziv
+            // 
+            this.Naziv.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Naziv.DataPropertyName = "Naziv";
+            this.Naziv.HeaderText = "Naziv";
+            this.Naziv.Name = "Naziv";
+            // 
             // frmDetaljiTima
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(366, 117);
+            this.ClientSize = new System.Drawing.Size(366, 277);
+            this.Controls.Add(this.dgvTimovi);
             this.Controls.Add(this.btnSacuvaj);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtNaziv);
@@ -80,6 +101,7 @@ namespace eSport.WinUI
             this.Text = "Novi tim";
             this.Load += new System.EventHandler(this.frmDetaljiTima_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTimovi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,5 +113,7 @@ namespace eSport.WinUI
         private System.Windows.Forms.TextBox txtNaziv;
         private System.Windows.Forms.Button btnSacuvaj;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.DataGridView dgvTimovi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
     }
 }

@@ -70,6 +70,7 @@ namespace eSport.WinUI
                     cmbTeren.Enabled = false;
                     cmbTipRezervacije.Enabled = false;
                     cbIsPotvrdjen.Visible = false;
+                    btnTabela.Visible = true;
                     errorProvider.Clear();
                 }
                 else
@@ -275,7 +276,16 @@ namespace eSport.WinUI
         {
             try
             {
-                var turnir = await _turnirService.GenerisiTurnir<Turnir>(_turnir.Id, _turnir);
+                var isGenerisan = await _turnirService.GenerisiTurnir<bool>(_turnir.Id, _turnir);
+                if (isGenerisan)
+                {
+                    _turnir.IsGenerisan = true;
+                    ProvjeraIsGenerisan();
+                }
+                else 
+                {
+                    MessageBox.Show("Broj timova mora biti minimalno 3");
+                }
             }
             catch (Exception)
             {

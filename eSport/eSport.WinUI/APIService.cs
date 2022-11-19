@@ -33,7 +33,7 @@ namespace eSport.WinUI
         }
         public async Task<T> GetById<T>(object id)
         {
-            var url = $"{Properties.Settings.Default.ApiURL}/{_route}/{id}";            
+            var url = $"{Properties.Settings.Default.ApiURL}/{_route}/{id}";  
             var result = await url.WithBasicAuth(KorisnickoIme, Lozinka).GetJsonAsync<T>();
             return result;
         }
@@ -93,17 +93,17 @@ namespace eSport.WinUI
             MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public async Task<T> GenerisiTurnir<T>(object id, object request)
+        public async Task<bool> GenerisiTurnir<T>(object id, object request)
         {
             var url = $"{Properties.Settings.Default.ApiURL}/{_route}/generisiTurnir/{id}";
             try
             {
-                return await url.WithBasicAuth(KorisnickoIme, Lozinka).PutJsonAsync(request).ReceiveJson<T>();
+                return await url.WithBasicAuth(KorisnickoIme, Lozinka).PutJsonAsync(request).ReceiveJson<bool>();
             }
             catch (FlurlHttpException ex)
             {
-                //GenerateMessage(ex);
-                return default(T);
+                GenerateMessage(ex);
+                return default(bool);
             }
         }
     }

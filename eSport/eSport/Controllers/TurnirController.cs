@@ -13,6 +13,7 @@ namespace eSport.Controllers
         {
             _turnirService = turnirService;
         }
+        [Authorize(Roles = "Admin")]
         [HttpPut("generisiTurnir/{id}")]
         public bool GenerisiTurnir(int id)
         {

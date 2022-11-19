@@ -35,7 +35,7 @@ namespace eSport.Services
             entity.IsDeleted = false;
             _context.Add(entity);
             _context.SaveChanges();
-            return base.Insert(request);
+            return _mapper.Map<Model.Turnir>(entity);
         }
 
         public override Model.Turnir Update(int id, TurnirInsertRequest request)
@@ -57,6 +57,9 @@ namespace eSport.Services
             turnir.IsGenerisan = true;
 
             var timovi = _context.Tims.Where(t => t.TurnirId == id).ToList();
+
+            if (timovi.Count() < 3)
+                return false;
 
             var utakmice = new List<Database.Utakmica>();
 
