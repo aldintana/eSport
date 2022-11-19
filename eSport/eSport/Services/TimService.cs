@@ -37,6 +37,8 @@ namespace eSport.Services
                 }
             }
 
+            entity.OrderBy(x => x.BrojBodova).OrderBy(x => x.BrojDatihGolova);
+
             var list = entity.ToList();
 
             return _mapper.Map<List<Model.Tim>>(list);

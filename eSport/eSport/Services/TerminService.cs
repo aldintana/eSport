@@ -98,7 +98,7 @@ namespace eSport.Services
 
         public override Model.Termin Update(int id, TerminInsertRequest request)
         {
-            if (IsZauzet(request))
+            if (IsZauzet(request, id))
                 return null;
             var entity = _context.Termins.Find(id);
             _mapper.Map(request, entity);
@@ -109,9 +109,26 @@ namespace eSport.Services
         public bool IsZauzet(TerminInsertRequest request, int? id = null)
         {
             var entity = _context.Set<Database.Termin>().AsQueryable();
-            entity = entity.Where(x => x.TerenId == request.TerenId && ((x.Pocetak <= request.Pocetak && request.Pocetak < x.Kraj) || (x.Pocetak < request.Kraj && request.Kraj <= x.Kraj)));
-            if (entity != null && entity.Any() && (id != null && entity.FirstOrDefault(x => x.Id == id.GetValueOrDefault()) == null))
+            entity = entity.Where(x => !x.IsDeleted && x.TerenId == request.TerenId && x.Datum.Date == request.Datum.Date && 
+                ((x.Pocetak <= request.Pocetak && request.Pocetak < x.Kraj) 
+                || (x.Pocetak < request.Kraj && request.Kraj <= x.Kraj)));
+            if (entity != null && entity.Any())
+            {
+                if (id != null && entity.FirstOrDefault(x => x.Id == id.GetValueOrDefault()) != null)
+                {
+                    return false;
+                }
                 return true;
+            }
+            var turnirEntity = _context.Set<Database.Turnir>().AsQueryable();
+                turnirEntity = turnirEntity.Where(x => !x.IsDeleted && x.TerenId == request.TerenId 
+                && x.DatumPocetka <= request.Datum && request.Datum <= x.DatumKraja && 
+                ((x.VrijemePocetka <= request.Pocetak.Hour && request.Pocetak.Hour < x.VrijemeKraja)
+                || (x.VrijemePocetka < request.Kraj.Hour && request.Kraj.Hour <= x.VrijemeKraja)));
+            if (turnirEntity != null && turnirEntity.Any())
+            {
+                return true;
+            }
             return false;
         }
     }

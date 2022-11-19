@@ -30,11 +30,17 @@ namespace eSport.WinUI
             cmbZavrsetak.DataSource = zavrsetak;
             if(_termin != null)
             {
+                await LoadTerene(_termin.TerenId);
                 cmbPocetak.SelectedItem = _termin.Pocetak.Hour;
                 cmbZavrsetak.SelectedItem = _termin.Kraj.Hour;
                 dtpDatum.Value = _termin.Datum;
                 cmbSport.SelectedValue = _termin.Teren.SportId;
                 cbIsPotvrdjen.Checked = _termin.IsPotvrdjen;
+                if(_termin.Korisnik != null)
+                {
+                    txtKorisnik.Visible = true;
+                    txtKorisnik.Text = $"Korisnik: {_termin.Korisnik.ImeIPrezime}";
+                }
                 if (cbIsPotvrdjen.Checked)
                     cbIsPotvrdjen.Enabled = false;
             }

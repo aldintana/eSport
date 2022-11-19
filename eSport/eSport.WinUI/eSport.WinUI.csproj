@@ -94,6 +94,7 @@
       <DependentUpon>frmPocetna.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\NazivEntiteta.cs" />
+    <Compile Include="Helper\Sport.cs" />
     <Compile Include="Helper\Validator.cs" />
     <Compile Include="Korisnik\frmDetaljiKorisnika.cs">
       <SubType>Form</SubType>

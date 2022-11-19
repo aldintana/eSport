@@ -47,6 +47,7 @@ namespace eSport.WinUI
             this.btnSacuvaj = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.cbIsPotvrdjen = new System.Windows.Forms.CheckBox();
+            this.txtKorisnik = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -200,11 +201,21 @@ namespace eSport.WinUI
             this.cbIsPotvrdjen.Text = "Potvrdjen";
             this.cbIsPotvrdjen.UseVisualStyleBackColor = true;
             // 
+            // txtKorisnik
+            // 
+            this.txtKorisnik.Location = new System.Drawing.Point(13, 169);
+            this.txtKorisnik.Name = "txtKorisnik";
+            this.txtKorisnik.ReadOnly = true;
+            this.txtKorisnik.Size = new System.Drawing.Size(336, 20);
+            this.txtKorisnik.TabIndex = 16;
+            this.txtKorisnik.Visible = false;
+            // 
             // frmDetaljiTermina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 213);
+            this.Controls.Add(this.txtKorisnik);
             this.Controls.Add(this.cbIsPotvrdjen);
             this.Controls.Add(this.btnSacuvaj);
             this.Controls.Add(this.txtCijena);
@@ -249,5 +260,6 @@ namespace eSport.WinUI
         private System.Windows.Forms.Button btnSacuvaj;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.CheckBox cbIsPotvrdjen;
+        private System.Windows.Forms.TextBox txtKorisnik;
     }
 }

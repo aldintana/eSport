@@ -14,5 +14,6 @@ namespace eSport.Model
         public string KorisnickoIme { get; set; }
         public virtual ICollection<KorisnikUloga> KorisnikUlogas { get; set; }
         public int Bodovi { get; set; }
+        public string ImeIPrezime  => $"{Ime} {Prezime}";
     }
 }

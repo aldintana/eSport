@@ -45,7 +45,6 @@ namespace eSport.WinUI
             this.label2 = new System.Windows.Forms.Label();
             this.cmbTeren = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbSport = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dtpDatumKraja = new System.Windows.Forms.DateTimePicker();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
@@ -54,6 +53,8 @@ namespace eSport.WinUI
             this.btnDodajTim = new System.Windows.Forms.Button();
             this.btnGenerisi = new System.Windows.Forms.Button();
             this.btnTabela = new System.Windows.Forms.Button();
+            this.txtSport = new System.Windows.Forms.TextBox();
+            this.txtKorisnik = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -194,16 +195,6 @@ namespace eSport.WinUI
             this.label1.TabIndex = 17;
             this.label1.Text = "Sport:";
             // 
-            // cmbSport
-            // 
-            this.cmbSport.FormattingEnabled = true;
-            this.cmbSport.Location = new System.Drawing.Point(6, 93);
-            this.cmbSport.Name = "cmbSport";
-            this.cmbSport.Size = new System.Drawing.Size(165, 21);
-            this.cmbSport.TabIndex = 16;
-            this.cmbSport.SelectedIndexChanged += new System.EventHandler(this.cmbSport_SelectedIndexChanged);
-            this.cmbSport.Validating += new System.ComponentModel.CancelEventHandler(this.cmbSport_Validating);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -231,6 +222,7 @@ namespace eSport.WinUI
             this.txtNaziv.Name = "txtNaziv";
             this.txtNaziv.Size = new System.Drawing.Size(336, 20);
             this.txtNaziv.TabIndex = 34;
+            this.txtNaziv.Validating += new System.ComponentModel.CancelEventHandler(this.txtNaziv_Validating);
             // 
             // label9
             // 
@@ -271,11 +263,30 @@ namespace eSport.WinUI
             this.btnTabela.UseVisualStyleBackColor = true;
             this.btnTabela.Click += new System.EventHandler(this.btnTabela_Click);
             // 
+            // txtSport
+            // 
+            this.txtSport.Location = new System.Drawing.Point(6, 93);
+            this.txtSport.Name = "txtSport";
+            this.txtSport.ReadOnly = true;
+            this.txtSport.Size = new System.Drawing.Size(165, 20);
+            this.txtSport.TabIndex = 40;
+            // 
+            // txtKorisnik
+            // 
+            this.txtKorisnik.Location = new System.Drawing.Point(6, 196);
+            this.txtKorisnik.Name = "txtKorisnik";
+            this.txtKorisnik.ReadOnly = true;
+            this.txtKorisnik.Size = new System.Drawing.Size(235, 20);
+            this.txtKorisnik.TabIndex = 41;
+            this.txtKorisnik.Visible = false;
+            // 
             // frmDetaljiTurnira
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(696, 237);
+            this.Controls.Add(this.txtKorisnik);
+            this.Controls.Add(this.txtSport);
             this.Controls.Add(this.btnTabela);
             this.Controls.Add(this.btnGenerisi);
             this.Controls.Add(this.btnDodajTim);
@@ -298,7 +309,6 @@ namespace eSport.WinUI
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbTeren);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmbSport);
             this.Name = "frmDetaljiTurnira";
             this.Text = "Novi turnir";
             this.Load += new System.EventHandler(this.frmDetaljiTurnira_Load);
@@ -325,7 +335,6 @@ namespace eSport.WinUI
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbTeren;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbSport;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dtpDatumKraja;
         private System.Windows.Forms.ErrorProvider errorProvider;
@@ -334,5 +343,7 @@ namespace eSport.WinUI
         private System.Windows.Forms.Button btnDodajTim;
         private System.Windows.Forms.Button btnGenerisi;
         private System.Windows.Forms.Button btnTabela;
+        private System.Windows.Forms.TextBox txtSport;
+        private System.Windows.Forms.TextBox txtKorisnik;
     }
 }

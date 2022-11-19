@@ -62,7 +62,7 @@ namespace eSport.WinUI
                     terenId = null;
                 TerminSearchRequest searchRequest = new TerminSearchRequest
                 {
-                    IncludeList = new string[] { NazivEntiteta.Teren },
+                    IncludeList = new string[] { NazivEntiteta.Teren, NazivEntiteta.Korisnik },
                     OdDatuma = DateTime.Now,
                     TerenId = terenId
                 };

@@ -101,6 +101,7 @@ namespace eSport
                 {
                     Naziv = "Fudbal"
                 });
+                context.SaveChanges();
             }
             if (!context.Sports.Any(x => x.Naziv == "Tenis"))
             {

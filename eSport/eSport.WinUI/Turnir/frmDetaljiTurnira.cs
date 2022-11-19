@@ -4,6 +4,7 @@ using eSport.Model;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using eSport.WinUI.Helper;
 
 namespace eSport.WinUI
 {
@@ -11,7 +12,6 @@ namespace eSport.WinUI
     {
         private List<int> pocetak = new List<int> { 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22 };
         private List<int> zavrsetak = new List<int> { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 };
-        APIService _sportService = new APIService(NazivEntiteta.Sport);
         APIService _terenService = new APIService(NazivEntiteta.Teren);
         APIService _cjenovnikService = new APIService(NazivEntiteta.Cjenovnik);
         APIService _turnirService = new APIService(NazivEntiteta.Turnir);
@@ -24,10 +24,11 @@ namespace eSport.WinUI
 
         private async void frmDetaljiTurnira_Load(object sender, EventArgs e)
         {
-            await LoadSportove();
+            await LoadTerene();
             ProvjeraIsGenerisan();
             cmbPocetak.DataSource = pocetak;
             cmbZavrsetak.DataSource = zavrsetak;
+            txtSport.Text = "Fudbal";
             if (_turnir != null)
             {
                 txtNaziv.Text = _turnir.Naziv;
@@ -35,8 +36,12 @@ namespace eSport.WinUI
                 cmbZavrsetak.SelectedItem = _turnir.VrijemeKraja;
                 dtpDatumPocetka.Value = _turnir.DatumPocetka;
                 dtpDatumKraja.Value = _turnir.DatumKraja;
-                cmbSport.SelectedValue = _turnir.Teren.SportId;
                 cbIsPotvrdjen.Checked = _turnir.IsPotvrdjen;
+                if (_turnir.Korisnik != null)
+                {
+                    txtKorisnik.Visible = true;
+                    txtKorisnik.Text = $"Korisnik: {_turnir.Korisnik.ImeIPrezime}";
+                }
                 if (cbIsPotvrdjen.Checked)
                     cbIsPotvrdjen.Enabled = false;
             }
@@ -62,7 +67,6 @@ namespace eSport.WinUI
                     btnSacuvaj.Visible = false;
                     cmbPocetak.Enabled = false;
                     cmbZavrsetak.Enabled = false;
-                    cmbSport.Enabled = false;
                     cmbTeren.Enabled = false;
                     cmbTipRezervacije.Enabled = false;
                     cbIsPotvrdjen.Visible = false;
@@ -80,20 +84,11 @@ namespace eSport.WinUI
             
         }
 
-        private async Task LoadSportove()
-        {
-            var sportovi = await _sportService.Get<List<Sport>>();
-            sportovi.Insert(0, new Sport());
-            cmbSport.DataSource = sportovi;
-            cmbSport.DisplayMember = "Naziv";
-            cmbSport.ValueMember = "Id";
-        }
-
-        private async Task LoadTerene(int? sportId = null, int? terenId = null)
+        private async Task LoadTerene(int? terenId = null)
         {
             TerenSearchRequest searchRequest = new TerenSearchRequest
             {
-                SportId = sportId
+                SportId = (int)Helper.Sport.Fudbal
             };
             var tereni = await _terenService.Get<List<Teren>>(searchRequest);
             cmbTeren.DataSource = tereni;
@@ -129,20 +124,7 @@ namespace eSport.WinUI
             cmbTipRezervacije.ValueMember = "Id";
             if (cjenovnikId != null)
                 cmbTipRezervacije.SelectedValue = cjenovnikId;
-        }
-
-        private async void cmbSport_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var comboBox = sender as ComboBox;
-            var sport = comboBox.SelectedItem as Sport;
-            if (sport != null)
-            {
-                if (_turnir?.Teren?.SportId != sport.Id)
-                    await LoadTerene(sport.Id);
-                else
-                    await LoadTerene(sport.Id, _turnir.Teren.Id);
-            }
-        }
+        }    
 
         private async void cmbTeren_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -270,11 +252,6 @@ namespace eSport.WinUI
             IzracunajCijenu();
         }
 
-        private void cmbSport_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            Validator.ValidacijaComboBox(errorProvider, cmbSport, e);
-        }
-
         private void cmbTeren_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Validator.ValidacijaComboBox(errorProvider, cmbTeren, e);
@@ -313,6 +290,11 @@ namespace eSport.WinUI
             {
 
             }
+        }
+
+        private void txtNaziv_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Validator.ValidacijaObaveznoPolje(errorProvider, txtNaziv, e);
         }
     }
 }

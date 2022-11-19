@@ -17,9 +17,9 @@ namespace eSport.Services
 
         public override Model.Turnir Insert(TurnirInsertRequest request)
         {
-            //if (IsZauzet(request))
-            //    return null;
-            var entity = _mapper.Map<Database.Termin>(request);
+            if (IsZauzet(request))
+                return null;
+            var entity = _mapper.Map<Database.Turnir>(request);
             if (request.KorisnikId != null)
             {
                 var korisnik = _context.Korisniks.FirstOrDefault(k => k.Id == request.KorisnikId);
@@ -36,6 +36,16 @@ namespace eSport.Services
             _context.Add(entity);
             _context.SaveChanges();
             return base.Insert(request);
+        }
+
+        public override Model.Turnir Update(int id, TurnirInsertRequest request)
+        {
+            if (IsZauzet(request, id))
+                return null;
+            var entity = _context.Turnirs.Find(id);
+            _mapper.Map(request, entity);
+            _context.SaveChanges();
+            return _mapper.Map<Model.Turnir>(entity);
         }
 
         public bool GenerisiTurnir(int id)
@@ -128,12 +138,35 @@ namespace eSport.Services
             return _mapper.Map<List<Model.Turnir>>(list);
         }
 
-        public bool IsZauzet(TerminInsertRequest request, int? id = null)
+        public bool IsZauzet(TurnirInsertRequest request, int? id = null)
         {
             var entity = _context.Set<Database.Termin>().AsQueryable();
-            entity = entity.Where(x => x.TerenId == request.TerenId && ((x.Pocetak <= request.Pocetak && request.Pocetak < x.Kraj) || (x.Pocetak < request.Kraj && request.Kraj <= x.Kraj)));
-            if (entity != null && entity.Any() && (id != null && entity.FirstOrDefault(x => x.Id == id.GetValueOrDefault()) == null))
+            entity = entity.Where(x => !x.IsDeleted && x.TerenId == request.TerenId 
+                && request.DatumPocetka.Date <= x.Datum.Date && x.Datum.Date <= request.DatumKraja.Date && 
+                ((x.Pocetak.Hour <= request.VrijemePocetka && request.VrijemePocetka < x.Kraj.Hour) || 
+                (x.Pocetak.Hour < request.VrijemeKraja && request.VrijemeKraja <= x.Kraj.Hour)));
+            if (entity != null && entity.Any())
+            {       
                 return true;
+            }
+            var turnirEntity = _context.Set<Database.Turnir>().AsQueryable();
+            turnirEntity = turnirEntity.Where(x => !x.IsDeleted && x.TerenId == request.TerenId
+                && ((x.DatumPocetka <= request.DatumPocetka && request.DatumPocetka <= x.DatumKraja)
+                || (x.DatumPocetka <= request.DatumKraja && request.DatumKraja <= x.DatumKraja)
+                || (request.DatumPocetka <= x.DatumPocetka && x.DatumPocetka <= request.DatumKraja)
+                || (request.DatumPocetka <= x.DatumKraja && x.DatumKraja <= request.DatumKraja))
+                && ((x.VrijemePocetka <= request.VrijemePocetka && request.VrijemePocetka < x.VrijemeKraja)
+                || (x.VrijemePocetka < request.VrijemeKraja && request.VrijemeKraja <= x.VrijemeKraja)
+                || (request.VrijemePocetka <= x.VrijemePocetka && x.VrijemePocetka < request.VrijemeKraja)
+                || (request.VrijemePocetka <= x.VrijemeKraja && x.VrijemeKraja < request.VrijemeKraja)));
+            if (turnirEntity != null && turnirEntity.Any())
+            {
+                if (id != null && turnirEntity.FirstOrDefault(x => x.Id == id.GetValueOrDefault()) != null)
+                {
+                    return false;
+                }
+                return true;
+            }
             return false;
         }
     }
