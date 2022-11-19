@@ -141,6 +141,33 @@ namespace eSport.Services
             return _mapper.Map<List<Model.Turnir>>(list);
         }
 
+        public override Model.Turnir Delete(int id, bool soft = true)
+        {
+            var entity = _context.Turnirs.Find(id);
+
+            var timovi = _context.Tims.Where(x => x.TurnirId == id).ToList();
+            var utakmice = _context.Utakmicas.Where(x => x.TurnirId == id).ToList();
+
+            if (soft)
+            {
+                entity.IsDeleted = true;
+                timovi.ForEach(x => x.IsDeleted = true);
+                _context.Tims.UpdateRange(timovi);
+                utakmice.ForEach(x => x.IsDeleted = true);
+                _context.Utakmicas.UpdateRange(utakmice);
+            }
+            else
+            {
+                _context.Turnirs.Remove(entity);
+                _context.Tims.RemoveRange(timovi);
+                _context.Utakmicas.RemoveRange(utakmice);
+            }
+
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.Turnir>(entity);
+        }
+
         public bool IsZauzet(TurnirInsertRequest request, int? id = null)
         {
             var entity = _context.Set<Database.Termin>().AsQueryable();

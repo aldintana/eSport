@@ -30,6 +30,7 @@ namespace eSport.WinUI
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnIzvjestaj = new System.Windows.Forms.Button();
             this.btnNoviTurnir = new System.Windows.Forms.Button();
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,7 +44,7 @@ namespace eSport.WinUI
             this.VrijemeKraja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TerenNaziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UkupnaCijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnIzvjestaj = new System.Windows.Forms.Button();
+            this.Akcija = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             this.gbTurniri.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTurniri)).BeginInit();
@@ -62,6 +63,16 @@ namespace eSport.WinUI
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pretraga turnira";
+            // 
+            // btnIzvjestaj
+            // 
+            this.btnIzvjestaj.Location = new System.Drawing.Point(695, 34);
+            this.btnIzvjestaj.Name = "btnIzvjestaj";
+            this.btnIzvjestaj.Size = new System.Drawing.Size(75, 23);
+            this.btnIzvjestaj.TabIndex = 5;
+            this.btnIzvjestaj.Text = "Izvještaj";
+            this.btnIzvjestaj.UseVisualStyleBackColor = true;
+            this.btnIzvjestaj.Click += new System.EventHandler(this.btnIzvjestaj_Click);
             // 
             // btnNoviTurnir
             // 
@@ -122,7 +133,8 @@ namespace eSport.WinUI
             this.VrijemePocetka,
             this.VrijemeKraja,
             this.TerenNaziv,
-            this.UkupnaCijena});
+            this.UkupnaCijena,
+            this.Akcija});
             this.dgvTurniri.Location = new System.Drawing.Point(7, 20);
             this.dgvTurniri.Name = "dgvTurniri";
             this.dgvTurniri.ReadOnly = true;
@@ -186,15 +198,14 @@ namespace eSport.WinUI
             this.UkupnaCijena.Name = "UkupnaCijena";
             this.UkupnaCijena.ReadOnly = true;
             // 
-            // btnIzvjestaj
+            // Akcija
             // 
-            this.btnIzvjestaj.Location = new System.Drawing.Point(695, 34);
-            this.btnIzvjestaj.Name = "btnIzvjestaj";
-            this.btnIzvjestaj.Size = new System.Drawing.Size(75, 23);
-            this.btnIzvjestaj.TabIndex = 5;
-            this.btnIzvjestaj.Text = "Izvještaj";
-            this.btnIzvjestaj.UseVisualStyleBackColor = true;
-            this.btnIzvjestaj.Click += new System.EventHandler(this.btnIzvjestaj_Click);
+            this.Akcija.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Akcija.HeaderText = "Akcija";
+            this.Akcija.Name = "Akcija";
+            this.Akcija.ReadOnly = true;
+            this.Akcija.Text = "Obriši";
+            this.Akcija.UseColumnTextForButtonValue = true;
             // 
             // frmPrikazTurnira
             // 
@@ -223,6 +234,7 @@ namespace eSport.WinUI
         private System.Windows.Forms.ComboBox cmbTereni;
         private System.Windows.Forms.GroupBox gbTurniri;
         private System.Windows.Forms.DataGridView dgvTurniri;
+        private System.Windows.Forms.Button btnIzvjestaj;
         private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
         private System.Windows.Forms.DataGridViewTextBoxColumn DatumPocetka;
         private System.Windows.Forms.DataGridViewTextBoxColumn DatumKraja;
@@ -230,6 +242,6 @@ namespace eSport.WinUI
         private System.Windows.Forms.DataGridViewTextBoxColumn VrijemeKraja;
         private System.Windows.Forms.DataGridViewTextBoxColumn TerenNaziv;
         private System.Windows.Forms.DataGridViewTextBoxColumn UkupnaCijena;
-        private System.Windows.Forms.Button btnIzvjestaj;
+        private System.Windows.Forms.DataGridViewButtonColumn Akcija;
     }
 }

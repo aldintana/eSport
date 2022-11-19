@@ -83,12 +83,22 @@ namespace eSport.WinUI
             }
         }
 
-        private void dgvTurniri_CellClick(object sender, DataGridViewCellEventArgs e)
+        private async void dgvTurniri_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var turnir = dgvTurniri.SelectedRows[0].DataBoundItem as Turnir;
-            frmDetaljiTurnira frmDetaljiTurnira = new frmDetaljiTurnira(turnir);
-            if (frmDetaljiTurnira.ShowDialog() == DialogResult.OK)
+            
+            if (e.ColumnIndex != 7)
             {
+                frmDetaljiTurnira frmDetaljiTurnira = new frmDetaljiTurnira(turnir);
+                if (frmDetaljiTurnira.ShowDialog() == DialogResult.OK)
+                {
+                    dgvTurniri.DataSource = null;
+                    frmPrikazTurnira_Load(sender, e);
+                }
+            }
+            else
+            {
+                await _turnirService.Delete<Model.Turnir>(turnir.Id);
                 dgvTurniri.DataSource = null;
                 frmPrikazTurnira_Load(sender, e);
             }
