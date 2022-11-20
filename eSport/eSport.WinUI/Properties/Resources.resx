@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BrojTelefonaValidacija" xml:space="preserve">
+    <value>Broj telefona mora biti u formatu 000-000-000 ili 000-000-0000</value>
+  </data>
   <data name="BrojTimova" xml:space="preserve">
     <value>Broj timova mora biti minimalno 3.</value>
+  </data>
+  <data name="EmailValidacija" xml:space="preserve">
+    <value>Potreban je email format. (naziv@emailadresa.domena)</value>
   </data>
   <data name="Greška" xml:space="preserve">
     <value>Došlo je do greške.</value>

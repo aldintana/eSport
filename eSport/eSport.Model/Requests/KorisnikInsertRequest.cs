@@ -11,8 +11,11 @@ namespace eSport.Model
         public string Ime { get; set; }
         [Required(AllowEmptyStrings = false)]
         public string Prezime { get; set; }
+        [Required(AllowEmptyStrings = false)]
         [EmailAddress()]
         public string Email { get; set; }
+        [Required(AllowEmptyStrings = false)]
+        [RegularExpression("^\\d{3}-\\d{3}-(\\d{4}|\\d{3})$")]
         public string BrojTelefona { get; set; }
         [Required(AllowEmptyStrings = false)]
         [MinLength(4)]

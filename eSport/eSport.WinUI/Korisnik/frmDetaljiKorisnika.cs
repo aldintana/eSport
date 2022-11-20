@@ -123,6 +123,7 @@ namespace eSport.WinUI.Korisnik
         private void txtEmail_Validating(object sender, CancelEventArgs e)
         {
             Validator.ValidacijaObaveznoPolje(errorProvider, txtEmail, e);
+            Validator.ValidacijaEmail(errorProvider, txtEmail, e);
         }
 
         private void txtKorisnickoIme_Validating(object sender, CancelEventArgs e)
@@ -133,6 +134,7 @@ namespace eSport.WinUI.Korisnik
         private void txtBrojTelefona_Validating(object sender, CancelEventArgs e)
         {
             Validator.ValidacijaObaveznoPolje(errorProvider, txtBrojTelefona, e);
+            Validator.ValidacijaBrojTelefona(errorProvider, txtBrojTelefona, e);
         }
     }
 }

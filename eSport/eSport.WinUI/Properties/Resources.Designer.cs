@@ -61,11 +61,29 @@ namespace eSport.WinUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Broj telefona mora biti u formatu 000-000-000 ili 000-000-0000.
+        /// </summary>
+        internal static string BrojTelefonaValidacija {
+            get {
+                return ResourceManager.GetString("BrojTelefonaValidacija", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Broj timova mora biti minimalno 3..
         /// </summary>
         internal static string BrojTimova {
             get {
                 return ResourceManager.GetString("BrojTimova", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potreban je email format. (naziv@emailadresa.domena).
+        /// </summary>
+        internal static string EmailValidacija {
+            get {
+                return ResourceManager.GetString("EmailValidacija", resourceCulture);
             }
         }
         

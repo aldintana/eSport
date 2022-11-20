@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using System.ComponentModel;
+using System.Text.RegularExpressions;
 
 namespace eSport.WinUI
 {
@@ -22,6 +23,32 @@ namespace eSport.WinUI
             if (string.IsNullOrEmpty(textBox.Text))
             {
                 return SprijeciSpasavanje(textBox, ObaveznoPolje, errorProvider, e);
+            }
+            else
+            {
+                errorProvider.SetError(textBox, null);
+                return true;
+            }
+        }
+
+        public static bool ValidacijaEmail(ErrorProvider errorProvider, TextBox textBox, CancelEventArgs e = null)
+        {
+            if (!Regex.IsMatch(textBox.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
+            {
+                return SprijeciSpasavanje(textBox, Properties.Resources.EmailValidacija, errorProvider, e);
+            }
+            else
+            {
+                errorProvider.SetError(textBox, null);
+                return true;
+            }
+        }
+
+        public static bool ValidacijaBrojTelefona(ErrorProvider errorProvider, TextBox textBox, CancelEventArgs e = null)
+        {
+            if (!Regex.IsMatch(textBox.Text, @"^\d{3}-\d{3}-(\d{4}|\d{3})$"))
+            {
+                return SprijeciSpasavanje(textBox, Properties.Resources.BrojTelefonaValidacija, errorProvider, e);
             }
             else
             {
