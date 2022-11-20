@@ -211,7 +211,7 @@ namespace eSport.WinUI
                     }
                     if (turnir == null)
                     {
-                        MessageBox.Show("Zauzeto");
+                        MessageBox.Show(Properties.Resources.Zauzeto);
                     }
                     else
                     {
@@ -284,7 +284,7 @@ namespace eSport.WinUI
                 }
                 else 
                 {
-                    MessageBox.Show("Broj timova mora biti minimalno 3");
+                    MessageBox.Show(Properties.Resources.BrojTimova);
                 }
             }
             catch (Exception)

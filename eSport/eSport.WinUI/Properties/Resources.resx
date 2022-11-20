@@ -117,16 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BrojTimova" xml:space="preserve">
+    <value>Broj timova mora biti minimalno 3.</value>
+  </data>
   <data name="Greška" xml:space="preserve">
     <value>Došlo je do greške.</value>
   </data>
   <data name="GreškaUPrijavi" xml:space="preserve">
     <value>Pogrešni kredencijali.</value>
   </data>
+  <data name="KorisnickoImeVecPostoji" xml:space="preserve">
+    <value>Korisnik sa istim korisničkim imenom već postoji, molimo stavite drugo.</value>
+  </data>
+  <data name="NemaPermisija" xml:space="preserve">
+    <value>Nemate permisije za ovu operaciju.</value>
+  </data>
+  <data name="NemaPodataka" xml:space="preserve">
+    <value>Nema podataka.</value>
+  </data>
   <data name="ObavezanUnosPolja" xml:space="preserve">
     <value>Obavezno polje.</value>
   </data>
   <data name="UspješnaOperacija" xml:space="preserve">
     <value>Uspješno.</value>
+  </data>
+  <data name="Zauzeto" xml:space="preserve">
+    <value>Odabrani termin vec je zauzet, probajte drugi datum ili drugo vrijeme.</value>
   </data>
 </root>

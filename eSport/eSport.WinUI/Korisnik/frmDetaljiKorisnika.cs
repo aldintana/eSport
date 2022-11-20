@@ -1,4 +1,5 @@
 ﻿using eSport.Model;
+using eSport.WinUI.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -62,7 +63,7 @@ namespace eSport.WinUI.Korisnik
             }
             catch (Exception)
             {
-                MessageBox.Show(Properties.Resources.Greška);
+                MessageBox.Show(Resources.Greška);
             }
         }
 
@@ -98,15 +99,40 @@ namespace eSport.WinUI.Korisnik
                     {
                         await _serviceKorisnici.Update<Model.Korisnik>(_korisnik.Id, request);                      
                     }
-                    MessageBox.Show("Operacija uspješno izvršena");
+                    MessageBox.Show(Resources.UspješnaOperacija);
                     DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show(Properties.Resources.Greška);
+                    MessageBox.Show(Resources.Greška);
                 }
             }
+        }
+
+        private void txtIme_Validating(object sender, CancelEventArgs e)
+        {
+            Validator.ValidacijaObaveznoPolje(errorProvider, txtIme, e);
+        }
+
+        private void txtPrezime_Validating(object sender, CancelEventArgs e)
+        {
+            Validator.ValidacijaObaveznoPolje(errorProvider, txtPrezime, e);
+        }
+
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            Validator.ValidacijaObaveznoPolje(errorProvider, txtEmail, e);
+        }
+
+        private void txtKorisnickoIme_Validating(object sender, CancelEventArgs e)
+        {
+            Validator.ValidacijaObaveznoPolje(errorProvider, txtKorisnickoIme, e);
+        }
+
+        private void txtBrojTelefona_Validating(object sender, CancelEventArgs e)
+        {
+            Validator.ValidacijaObaveznoPolje(errorProvider, txtBrojTelefona, e);
         }
     }
 }

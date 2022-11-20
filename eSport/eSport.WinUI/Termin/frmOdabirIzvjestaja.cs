@@ -80,7 +80,7 @@ namespace eSport.WinUI
                 {
                     if (termini.Count == 0)
                     {
-                        MessageBox.Show("Nema podataka");
+                        MessageBox.Show(Properties.Resources.NemaPodataka);
                         return;
                     }
                     var pocetak = dtpOdDatuma.Value.Date.ToString("dd.MM.yyyy.");
@@ -117,7 +117,7 @@ namespace eSport.WinUI
                 {
                     if (turniri.Count == 0)
                     {
-                        MessageBox.Show("Nema podataka");
+                        MessageBox.Show(Properties.Resources.NemaPodataka);
                         return;
                     }
                     var pocetak = dtpOdDatuma.Value.Date.ToString("dd.MM.yyyy.");

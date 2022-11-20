@@ -19,7 +19,7 @@ namespace eSport.WinUI.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -61,6 +61,15 @@ namespace eSport.WinUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Broj timova mora biti minimalno 3..
+        /// </summary>
+        internal static string BrojTimova {
+            get {
+                return ResourceManager.GetString("BrojTimova", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Došlo je do greške..
         /// </summary>
         internal static string Greška {
@@ -79,6 +88,33 @@ namespace eSport.WinUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Korisnik sa istim korisničkim imenom već postoji, molimo stavite drugo..
+        /// </summary>
+        internal static string KorisnickoImeVecPostoji {
+            get {
+                return ResourceManager.GetString("KorisnickoImeVecPostoji", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nemate permisije za ovu operaciju..
+        /// </summary>
+        internal static string NemaPermisija {
+            get {
+                return ResourceManager.GetString("NemaPermisija", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nema podataka..
+        /// </summary>
+        internal static string NemaPodataka {
+            get {
+                return ResourceManager.GetString("NemaPodataka", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Obavezno polje..
         /// </summary>
         internal static string ObavezanUnosPolja {
@@ -93,6 +129,15 @@ namespace eSport.WinUI.Properties {
         internal static string UspješnaOperacija {
             get {
                 return ResourceManager.GetString("UspješnaOperacija", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Odabrani termin vec je zauzet, probajte drugi datum ili drugo vrijeme..
+        /// </summary>
+        internal static string Zauzeto {
+            get {
+                return ResourceManager.GetString("Zauzeto", resourceCulture);
             }
         }
     }

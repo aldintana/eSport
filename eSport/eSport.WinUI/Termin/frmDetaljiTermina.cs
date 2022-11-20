@@ -199,7 +199,7 @@ namespace eSport.WinUI
                     }
                     if (termin == null)
                     {
-                        MessageBox.Show("Zauzeto");
+                        MessageBox.Show(Properties.Resources.Zauzeto);
                     }
                     else
                     {

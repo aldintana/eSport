@@ -1,13 +1,8 @@
-﻿using eSport.WinUI.Properties;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using eSport.WinUI.Properties;
+using System.Collections.Generic;
 
 namespace eSport.WinUI
 {
@@ -23,8 +18,7 @@ namespace eSport.WinUI
         {
             APIService.KorisnickoIme = txtKorisnickoIme.Text;
             APIService.Lozinka = txtLozinka.Text;
-            APIService.Admin = false;
-
+            bool admin = false;
             try
             {
                 var korisnici = await _korisnikService.Get<List<Model.Korisnik>>();
@@ -36,13 +30,20 @@ namespace eSport.WinUI
                 {
                     if (uloga.Uloga.Naziv == "Admin")
                     {
-                        APIService.Admin = true;
+                        admin = true;
                     }
                 }
 
-                frmPocetna frm = new frmPocetna();
-                frm.Show();
-                this.Hide();
+                if(admin)
+                {
+                    frmPocetna frm = new frmPocetna();
+                    frm.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show(Resources.NemaPermisija);
+                }
             }
             catch
             {

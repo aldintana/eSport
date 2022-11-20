@@ -1,7 +1,5 @@
 ﻿using eSport.Model;
 using eSport.Services;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
 
 namespace eSport.Controllers
@@ -12,12 +10,6 @@ namespace eSport.Controllers
         public UlogaController(IUlogaService service) : base(service)
         {
 
-        }
-
-        [AllowAnonymous]
-        public override IEnumerable<Uloga> Get([FromQuery] object search)
-        {
-            return base.Get(search);
         }
     }
 }

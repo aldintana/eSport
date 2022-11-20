@@ -1,6 +1,5 @@
-﻿using System.ComponentModel;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace eSport.WinUI
 {

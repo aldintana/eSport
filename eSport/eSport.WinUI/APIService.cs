@@ -14,7 +14,6 @@ namespace eSport.WinUI
         public static string KorisnickoIme { get; set; }
         public static string Lozinka { get; set; }
         public static int LogiraniKorisnikId { get; set; }
-        public static bool Admin { get; set; }
 
         public APIService(string route)
         {
