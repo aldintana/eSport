@@ -54,6 +54,7 @@ namespace eSport.Services
             if (turnir == null)
                 return false;
 
+            turnir.IsPotvrdjen = true;
             turnir.IsGenerisan = true;
 
             var timovi = _context.Tims.Where(t => t.TurnirId == id).ToList();

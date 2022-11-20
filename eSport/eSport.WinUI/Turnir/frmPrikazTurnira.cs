@@ -37,7 +37,7 @@ namespace eSport.WinUI
                 await LoadTerene();
                 TurnirSearchRequest searchRequest = new TurnirSearchRequest
                 {
-                    IncludeList = new string[] { NazivEntiteta.Teren }
+                    IncludeList = new string[] { NazivEntiteta.Teren, NazivEntiteta.Korisnik }
                 };
                 if (_aktivni)
                     searchRequest.OdDatuma = DateTime.Now;
@@ -61,7 +61,7 @@ namespace eSport.WinUI
                     terenId = null;
                 TurnirSearchRequest searchRequest = new TurnirSearchRequest
                 {
-                    IncludeList = new string[] { NazivEntiteta.Teren },
+                    IncludeList = new string[] { NazivEntiteta.Teren, NazivEntiteta.Korisnik },
                     TerenId = terenId
                 };
 

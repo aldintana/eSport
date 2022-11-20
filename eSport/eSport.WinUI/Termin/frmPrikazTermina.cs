@@ -38,7 +38,7 @@ namespace eSport.WinUI
                 await LoadTerene();
                 TerminSearchRequest searchRequest = new TerminSearchRequest
                 {
-                    IncludeList = new string[] { NazivEntiteta.Teren }
+                    IncludeList = new string[] { NazivEntiteta.Teren, NazivEntiteta.Korisnik }
                 };
                 if (_aktivni)
                     searchRequest.OdDatuma = DateTime.Now;

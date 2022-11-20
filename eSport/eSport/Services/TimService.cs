@@ -37,7 +37,7 @@ namespace eSport.Services
                 }
             }
 
-            entity = entity.OrderByDescending(x => x.BrojBodova).OrderByDescending(x => x.BrojDatihGolova);
+            entity = entity.OrderByDescending(x => x.BrojBodova).ThenByDescending(x => x.BrojDatihGolova);
 
             var list = entity.ToList();
 

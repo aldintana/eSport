@@ -39,9 +39,10 @@ namespace eSport.WinUI
         private void btnPrikaziUtakmice_Click(object sender, EventArgs e)
         {
             frmPrikazUtakmica frmPrikazUtakmica = new frmPrikazUtakmica(_turnir);
-            if (frmPrikazUtakmica.ShowDialog() == DialogResult.OK)
+            if (frmPrikazUtakmica.ShowDialog() == DialogResult.Cancel)
             {
-
+                dgvTimovi.DataSource = null;
+                frmTablicaTurnira_Load(sender, e);
             }
         }
     }

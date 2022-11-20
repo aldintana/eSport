@@ -127,6 +127,7 @@ namespace eSport.WinUI
             // 
             this.txtDomacin.Location = new System.Drawing.Point(10, 73);
             this.txtDomacin.Name = "txtDomacin";
+            this.txtDomacin.ReadOnly = true;
             this.txtDomacin.Size = new System.Drawing.Size(163, 20);
             this.txtDomacin.TabIndex = 17;
             // 
@@ -134,6 +135,7 @@ namespace eSport.WinUI
             // 
             this.txtGost.Location = new System.Drawing.Point(189, 73);
             this.txtGost.Name = "txtGost";
+            this.txtGost.ReadOnly = true;
             this.txtGost.Size = new System.Drawing.Size(163, 20);
             this.txtGost.TabIndex = 18;
             // 
