@@ -97,7 +97,12 @@ namespace eSport.WinUI.Korisnik
                     }
                     else
                     {
-                        await _serviceKorisnici.Update<Model.Korisnik>(_korisnik.Id, request);                      
+                        await _serviceKorisnici.Update<Model.Korisnik>(_korisnik.Id, request);
+                        if(_korisnik.Id == APIService.LogiraniKorisnikId && 
+                            !string.IsNullOrWhiteSpace(request.Lozinka) && !string.IsNullOrWhiteSpace(request.LozinkaProvjera))
+                        {
+                            APIService.Lozinka = request.Lozinka;
+                        }
                     }
                     MessageBox.Show(Resources.UspješnaOperacija);
                     DialogResult = DialogResult.OK;
