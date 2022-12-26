@@ -27,14 +27,28 @@ namespace eSport.WinUI
                 url += "?";
                 url += await request.ToQueryString();
             }
-            var result = await url.WithBasicAuth(KorisnickoIme,Lozinka).GetJsonAsync<T>();
-            return result;
+            try
+            {
+                return await url.WithBasicAuth(KorisnickoIme, Lozinka).GetJsonAsync<T>();
+            }
+            catch (FlurlHttpException ex)
+            {
+                GenerateMessage(ex);
+                return default(T);
+            }
         }
         public async Task<T> GetById<T>(object id)
         {
-            var url = $"{Properties.Settings.Default.ApiURL}/{_route}/{id}";  
-            var result = await url.WithBasicAuth(KorisnickoIme, Lozinka).GetJsonAsync<T>();
-            return result;
+            var url = $"{Properties.Settings.Default.ApiURL}/{_route}/{id}";
+            try
+            {
+                return await url.WithBasicAuth(KorisnickoIme, Lozinka).GetJsonAsync<T>();
+            }
+            catch (FlurlHttpException ex)
+            {
+                GenerateMessage(ex);
+                return default(T);
+            }
         }
 
         public async Task<T> Insert<T>(object request)
