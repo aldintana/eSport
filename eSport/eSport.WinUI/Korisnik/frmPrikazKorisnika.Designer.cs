@@ -38,6 +38,7 @@
             this.KorisnickoIme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BrojTelefona = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Akcija = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).BeginInit();
@@ -91,7 +92,8 @@
             this.Prezime,
             this.KorisnickoIme,
             this.Email,
-            this.BrojTelefona});
+            this.BrojTelefona,
+            this.Akcija});
             this.dgvKorisnici.Location = new System.Drawing.Point(6, 29);
             this.dgvKorisnici.Name = "dgvKorisnici";
             this.dgvKorisnici.ReadOnly = true;
@@ -140,6 +142,15 @@
             this.BrojTelefona.Name = "BrojTelefona";
             this.BrojTelefona.ReadOnly = true;
             // 
+            // Akcija
+            // 
+            this.Akcija.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Akcija.HeaderText = "Akcija";
+            this.Akcija.Name = "Akcija";
+            this.Akcija.ReadOnly = true;
+            this.Akcija.Text = "Obriši";
+            this.Akcija.UseColumnTextForButtonValue = true;
+            // 
             // frmPrikazKorisnika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,5 +180,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn KorisnickoIme;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn BrojTelefona;
+        private System.Windows.Forms.DataGridViewButtonColumn Akcija;
     }
 }

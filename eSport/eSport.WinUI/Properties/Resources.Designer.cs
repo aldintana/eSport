@@ -97,6 +97,15 @@ namespace eSport.WinUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Korisnik ne može obrisati sam sebe..
+        /// </summary>
+        internal static string GreškaUBrisanjuKorisnika {
+            get {
+                return ResourceManager.GetString("GreškaUBrisanjuKorisnika", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Odabrani teren ne možete obrisati. Potrebno je da prvo aktivne termine i turnire koji se održavaju na ovom terenu zamijenite drugim..
         /// </summary>
         internal static string GreškaUBrisanjuTerena {

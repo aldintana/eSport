@@ -1,4 +1,5 @@
 ﻿using eSport.Model;
+using eSport.WinUI.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ namespace eSport.WinUI.Korisnik
 {
     public partial class frmPrikazKorisnika : Form
     {
-        private readonly APIService _serviceKorisnici = new APIService(NazivEntiteta.Korisnik);
+        private readonly APIService _korisnikService = new APIService(NazivEntiteta.Korisnik);
         public frmPrikazKorisnika()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace eSport.WinUI.Korisnik
             };
             try
             {
-                dgvKorisnici.DataSource = await _serviceKorisnici.Get<List<Model.Korisnik>>(searchRequest);
+                dgvKorisnici.DataSource = await _korisnikService.Get<List<Model.Korisnik>>(searchRequest);
             }
             catch (Exception)
             {
@@ -46,14 +47,30 @@ namespace eSport.WinUI.Korisnik
             frmPrikazKorisnika_Load(sender, e);
         }
 
-        private void dgvKorisnici_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void dgvKorisnici_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var korisnik = dgvKorisnici.SelectedRows[0].DataBoundItem;
-            frmDetaljiKorisnika frm = new frmDetaljiKorisnika(korisnik as Model.Korisnik);
-            if (frm.ShowDialog() == DialogResult.OK)
+            var korisnik = dgvKorisnici.SelectedRows[0].DataBoundItem as Model.Korisnik;
+            if (e.ColumnIndex != 5)
             {
-                dgvKorisnici.DataSource = null;
-                frmPrikazKorisnika_Load(sender, e);
+                frmDetaljiKorisnika frm = new frmDetaljiKorisnika(korisnik);
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    dgvKorisnici.DataSource = null;
+                    frmPrikazKorisnika_Load(sender, e);
+                }
+            }
+            else
+            {
+                if(APIService.LogiraniKorisnikId == korisnik.Id)
+                {
+                    MessageBox.Show(Resources.GreškaUBrisanjuKorisnika);
+                }
+                else
+                {
+                    await _korisnikService.Delete<Model.Korisnik>(korisnik.Id);
+                    dgvKorisnici.DataSource = null;
+                    frmPrikazKorisnika_Load(sender, e);
+                }
             }
         }
     }
