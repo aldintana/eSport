@@ -1,4 +1,5 @@
-﻿using eSport.Model;
+﻿using eSport.Filters;
+using eSport.Model;
 using eSport.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +22,11 @@ namespace eSport.Controllers
         public override Teren Update(int id, [FromBody] TerenInsertRequest request)
         {
             return base.Update(id, request);
+        }
+        [Authorize(Roles = "Admin")]
+        public override Teren Delete(int id)
+        {
+            return base.Delete(id);
         }
     }
 }

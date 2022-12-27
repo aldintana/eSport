@@ -129,6 +129,9 @@
   <data name="Greška" xml:space="preserve">
     <value>Došlo je do greške.</value>
   </data>
+  <data name="GreškaUBrisanjuTerena" xml:space="preserve">
+    <value>Odabrani teren ne možete obrisati. Potrebno je da prvo aktivne termine i turnire koji se održavaju na ovom terenu zamijenite drugim.</value>
+  </data>
   <data name="GreškaUPrijavi" xml:space="preserve">
     <value>Pogrešni kredencijali.</value>
   </data>

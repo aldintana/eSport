@@ -36,6 +36,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SportNaziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Akcija = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTereni)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -48,7 +49,8 @@
             this.dgvTereni.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTereni.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Naziv,
-            this.SportNaziv});
+            this.SportNaziv,
+            this.Akcija});
             this.dgvTereni.Location = new System.Drawing.Point(5, 19);
             this.dgvTereni.Name = "dgvTereni";
             this.dgvTereni.ReadOnly = true;
@@ -122,6 +124,15 @@
             this.SportNaziv.Name = "SportNaziv";
             this.SportNaziv.ReadOnly = true;
             // 
+            // Akcija
+            // 
+            this.Akcija.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Akcija.HeaderText = "Akcija";
+            this.Akcija.Name = "Akcija";
+            this.Akcija.ReadOnly = true;
+            this.Akcija.Text = "Obriši";
+            this.Akcija.UseColumnTextForButtonValue = true;
+            // 
             // frmPrikazTerena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,9 +158,10 @@
         private System.Windows.Forms.Button btnPrikazi;
         private System.Windows.Forms.TextBox txtPretraga;
         private System.Windows.Forms.Button btnDodajTeren;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SportNaziv;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SportNaziv;
+        private System.Windows.Forms.DataGridViewButtonColumn Akcija;
     }
 }

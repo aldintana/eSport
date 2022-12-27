@@ -43,6 +43,16 @@ namespace eSport.WinUI
                 }
                 if (cbIsPotvrdjen.Checked)
                     cbIsPotvrdjen.Enabled = false;
+                if(_termin.Datum.Date < DateTime.Today)
+                {
+                    cmbPocetak.Enabled = false;
+                    cmbZavrsetak.Enabled = false;
+                    dtpDatum.Enabled = false;
+                    cmbSport.Enabled = false;
+                    cmbTeren.Enabled = false;
+                    cmbTipRezervacije.Enabled = false;
+                    errorProvider.Clear();
+                }
             }
         }
 
@@ -61,6 +71,8 @@ namespace eSport.WinUI
             {
                 SportId = sportId
             };
+            if (_termin.Datum.Date < DateTime.Today)
+                searchRequest.IsDeleted = true;
             var tereni = await _terenService.Get<List<Teren>>(searchRequest);
             cmbTeren.DataSource = tereni;
             if (tereni != null && tereni.Count == 0)

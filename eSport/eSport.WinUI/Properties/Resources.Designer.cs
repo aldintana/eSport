@@ -97,6 +97,15 @@ namespace eSport.WinUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Odabrani teren ne možete obrisati. Potrebno je da prvo aktivne termine i turnire koji se održavaju na ovom terenu zamijenite drugim..
+        /// </summary>
+        internal static string GreškaUBrisanjuTerena {
+            get {
+                return ResourceManager.GetString("GreškaUBrisanjuTerena", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pogrešni kredencijali..
         /// </summary>
         internal static string GreškaUPrijavi {

@@ -17,11 +17,41 @@ namespace eSport.Services
         {
 
         }
+
+        public override Model.Teren Delete(int id, bool soft = true)
+        {
+            var entity = _context.Terens.Find(id);
+
+            var termins = _context.Termins.Where(x => !x.IsDeleted && x.TerenId == id && x.Datum.Date >= DateTime.Today).ToList();
+            var turnirs = _context.Turnirs.Where(x => !x.IsDeleted && x.TerenId == id && x.DatumPocetka.Date >= DateTime.Today).ToList();
+
+            if((termins != null && termins.Any()) || (turnirs != null && turnirs.Any()))
+            {
+                return null;
+            }
+
+            if (soft)
+            {
+                entity.IsDeleted = true;
+            }
+            else
+            {
+                _context.Terens.Remove(entity);
+            }
+
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.Teren>(entity);
+        }
+
         public override IEnumerable<Model.Teren> Get(TerenSearchRequest search = null)
         {
             var entity = _context.Set<Database.Teren>().AsQueryable();
             
-            entity = entity.Where(e => e.IsDeleted == search.IsDeleted);
+            if(!search.IsDeleted)
+            {
+                entity = entity.Where(e => e.IsDeleted == search.IsDeleted);
+            }
 
             if (!string.IsNullOrWhiteSpace(search.TekstPretraga))
             {
